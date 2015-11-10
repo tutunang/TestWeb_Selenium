@@ -13,7 +13,7 @@ public class TestSearchField extends ConfigDriver{
 	
 @Test
 public void TestField(){
-	//数据驱动，获取xml中测试数据，强转成SearchBean类型
+	//数据驱动，获取xml中测试数据，强转成SearchBean类型,通过注释实现扫描
 	DataProvider dp=new DataProvider();
 	SearchInfoBean bean=(SearchInfoBean)dp.getBean(this.getClass().getSimpleName());
 	//在搜索页面设计搜索内容
