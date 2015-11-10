@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" parallel="true">
+  <test name="TestSearchField(failed)" parallel="true">
+    <classes>
+      <class name="com.elong.air.tests.TestSearchField">
+        <methods>
+          <include name="closeWebDriver"/>
+          <include name="setUpDriver"/>
+          <include name="TestField"/>
+        </methods>
+      </class> <!-- com.elong.air.tests.TestSearchField -->
+    </classes>
+  </test> <!-- TestSearchField(failed) -->
+</suite> <!-- Failed suite [Suite] -->

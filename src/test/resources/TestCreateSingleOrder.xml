@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataBean>
+		<startCity>上海</startCity>
+		<endCity>成都</endCity>
+		<startDate>2015-11-10</startDate>
+        <oneWay>true</oneWay>
+        <roundWay>false</roundWay>
+        <returnDate>2015-11-25</returnDate>
+	<passenagerInfo >
+		<passengerName>于洋</passengerName>
+		<passenagerId>356676672</passenagerId>
+		<birthDate>1991-10-20</birthDate>
+		<phoneNum>18686423486</phoneNum>
+		<emailAddress>229836917@qq.com</emailAddress>
+		<insurance>true</insurance>
+		<cardType>1</cardType>
+		<insuranceAmount>1</insuranceAmount>
+	</passenagerInfo>
+</DataBean>   
