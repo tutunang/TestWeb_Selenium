@@ -32,12 +32,12 @@ public class TestCreateOrder extends ConfigDriver{
 @Test
 public void createSingleOrder() throws Exception{
 	log.info("13213131asdasd");
-
+String s =this.getClass().getSimpleName();
 	System.out.println(this.getClass().getSimpleName());
 	DataProvider dp=new DataProvider();
 	SearchInfoBean bean=(SearchInfoBean)dp.getBean(this.getClass().getSimpleName());
 
-	SearchPage sp=new SearchPage(driver);
+	SearchPage sp=new SearchPage(driver,s);
 	AirListsPage ap=sp.searchFlight(bean);
 	InputInformationPage ip=ap.getFirstBizopt();
 	List<PassenagerInfoBean> passenagerInfo = bean.getPassenagerInfo();

@@ -19,10 +19,12 @@ import com.elong.air.tools.ConfigDriver;
 public class TestCreateOrder_RoundTrip extends ConfigDriver{
 	@Test
 	public void createSingleOrder() throws Exception{
+		String  s=this.getClass().getSimpleName();
+		
 		System.out.println(this.getClass().getSimpleName());
 		DataProvider dp=new DataProvider();
 		SearchInfoBean bean=(SearchInfoBean)dp.getBean(this.getClass().getSimpleName());
-		SearchPage sp=new SearchPage(driver);
+		SearchPage sp=new SearchPage(driver,s);
 		AirListsPage ap=sp.searchFlight(bean);
 		AirListsRoundTripPage artp=ap.getFirstBizopt_round();
 		InputInformationPage ip=artp.getFirstDiamond();

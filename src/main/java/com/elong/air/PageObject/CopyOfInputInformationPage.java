@@ -55,7 +55,7 @@ public CheckOrderPage setPassengerInfo(PassenagerInfoBean bean){
 	this.setInputText(passengerIdInputTextField, bean.getPassenagerId());
 	this.setInputText(phoneInputTextField, bean.getPhoneNum());
 	summbitOrder();
-	return new CheckOrderPage(driver);
+	return new CheckOrderPage(driver,name);
 }
 
 public void putPassInfoBean (List<PassenagerInfoBean>s){

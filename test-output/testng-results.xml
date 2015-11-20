@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="19087" started-at="2015-11-05T09:37:32Z" finished-at="2015-11-05T09:37:51Z">
+  <suite name="Default suite" duration-ms="74029" started-at="2015-11-20T09:44:22Z" finished-at="2015-11-20T09:45:36Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="19087" started-at="2015-11-05T09:37:32Z" finished-at="2015-11-05T09:37:51Z">
+    <test name="Default test" duration-ms="74029" started-at="2015-11-20T09:44:22Z" finished-at="2015-11-20T09:45:36Z">
       <class name="com.elong.air.tests.TestSearchField">
-        <test-method status="PASS" signature="setUpDriver()[pri:0, instance:com.elong.air.tests.TestSearchField@7108759d]" name="setUpDriver" is-config="true" duration-ms="7191" started-at="2015-11-05T17:37:32Z" finished-at="2015-11-05T17:37:39Z">
+        <test-method status="PASS" signature="setUpDriver()[pri:0, instance:com.elong.air.tests.TestSearchField@53be6b71]" name="setUpDriver" is-config="true" duration-ms="6519" started-at="2015-11-20T17:44:22Z" finished-at="2015-11-20T17:44:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpDriver -->
-        <test-method status="PASS" signature="TestField()[pri:0, instance:com.elong.air.tests.TestSearchField@7108759d]" name="TestField" duration-ms="11180" started-at="2015-11-05T17:37:39Z" finished-at="2015-11-05T17:37:51Z">
+        <test-method status="PASS" signature="TestField()[pri:0, instance:com.elong.air.tests.TestSearchField@53be6b71]" name="TestField" duration-ms="67160" started-at="2015-11-20T17:44:29Z" finished-at="2015-11-20T17:45:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestField -->
-        <test-method status="PASS" signature="closeWebDriver()[pri:0, instance:com.elong.air.tests.TestSearchField@7108759d]" name="closeWebDriver" is-config="true" duration-ms="705" started-at="2015-11-05T17:37:51Z" finished-at="2015-11-05T17:37:51Z">
+        <test-method status="PASS" signature="closeWebDriver()[pri:0, instance:com.elong.air.tests.TestSearchField@53be6b71]" name="closeWebDriver" is-config="true" duration-ms="340" started-at="2015-11-20T17:45:36Z" finished-at="2015-11-20T17:45:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeWebDriver -->

@@ -13,9 +13,11 @@ import com.elong.air.tools.TakeScreenShot;
 import com.elong.air.tools.WaitTools;
 
 public class AirListsPage extends AbstractPageObject{
-
-	public AirListsPage(WebDriver driver) {
+String name="";
+	public AirListsPage(WebDriver driver,String name) {
 		super(driver,key1);
+		super.name=name;
+		this.name=name;
 //		WaitTools.waitToElement(key1, driver);
 	}
 	
@@ -47,7 +49,7 @@ public class AirListsPage extends AbstractPageObject{
 				//driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS); 
 				TakeScreenShot.takeScreenShot(driver);
 				click(book);
-				return new InputInformationPage(driver);
+				return new InputInformationPage(driver,name);
 			}
 
 		}
@@ -93,7 +95,7 @@ public class AirListsPage extends AbstractPageObject{
 		}
 		click(bookButton);
 		
-		return new InputInformationPage(driver);
+		return new InputInformationPage(driver,name);
 
 	}
 	

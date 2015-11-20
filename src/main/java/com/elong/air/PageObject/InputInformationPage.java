@@ -14,9 +14,11 @@ import com.elong.air.exception.AirException;
 import com.elong.air.tools.WaitTools;
 
 public class InputInformationPage  extends AbstractPageObject{
-
-	public InputInformationPage(WebDriver driver) {
+public String name="";
+	public InputInformationPage(WebDriver driver,String name) {
 		super(driver);
+		super.name=name;
+		this.name=name;
 		WaitTools.waitToElement(phoneInputTextField, driver);
 	}
 @FindBy(css="li[method='Passenger']> #txtPassengerName" )
@@ -60,7 +62,7 @@ public CheckOrderPage putPassInfoBean (List<PassenagerInfoBean>s) throws AirExce
 			summbitOrder();
 		
 	}
-	return new CheckOrderPage(driver);
+	return new CheckOrderPage(driver,name);
 }
 
 public void addPassenger(int i){

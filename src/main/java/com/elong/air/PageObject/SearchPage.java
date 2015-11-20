@@ -7,9 +7,11 @@ import com.elong.air.AbstractObject.AbstractPageObject;
 import com.elong.air.Bean.SearchInfoBean;
 
 public class SearchPage extends AbstractPageObject {
-
-	public SearchPage(WebDriver driver) {
+ String name="";
+	public SearchPage(WebDriver driver,String ClassName) {
 		super(driver);
+		super.name=ClassName;
+		this.name=ClassName;
 	}
 /**
  * */
@@ -82,9 +84,19 @@ public class SearchPage extends AbstractPageObject {
 			}
 		}
 		clickSearchButton();
-		if(errorMsg.isDisplayed()){return null;}else{
-		return new AirListsPage(driver);}
-	}
+		try{if(errorMsg.isDisplayed()){
+			return null;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return new AirListsPage(driver,name);
+		}
+		
+		return new AirListsPage(driver,name);
+
+	
+		}
+
 	public String getErrorMsg(){
 		return 
 			errorMsg.getText();

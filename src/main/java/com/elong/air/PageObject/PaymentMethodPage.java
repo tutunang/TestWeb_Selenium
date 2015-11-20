@@ -7,9 +7,11 @@ import org.openqa.selenium.support.FindBy;
 import com.elong.air.AbstractObject.AbstractPageObject;
 
 public class PaymentMethodPage extends AbstractPageObject{
-
-	public PaymentMethodPage(WebDriver driver) {
+public String name="";
+	public PaymentMethodPage(WebDriver driver,String name) {
 		super(driver);
+		super.name=name;
+		this.name=name;
 		// TODO Auto-generated constructor stub
 	}
 @FindBy(xpath="//ul[@id='tabMenu']/li[1]")

@@ -1,11 +1,17 @@
 package com.elong.air.AbstractObject;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Iterator;
+import java.util.Random;
 import java.util.Set;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -19,7 +25,9 @@ public class AbstractPageObject {
 	public WebDriver driver;
 	public static final String NO_SUCH_FRAME = "no-such-frame";
 	private Logger log = Logger.getLogger(AbstractPageObject.class);
+	protected String name="";
 	private static int tryTime = 5;
+	public  final static  String path ="D:/eclipseWorkSpace/AirGUIDemo/test-output/ScreenShot/";
 
 	public AbstractPageObject(WebDriver driver, String key) {
 		this.driver = driver;
@@ -74,7 +82,7 @@ public class AbstractPageObject {
 
 	public void click (WebElement element) {
 		// switchFrame(element);
-		TakeScreenShot.takeScreenShot(driver);
+		takeScreenShot(driver);
 		element.click();
 	}
 
@@ -146,5 +154,16 @@ public class AbstractPageObject {
 			driver.switchTo().window(handle);
 		}
 	}
-
+//截图
+	public  void  takeScreenShot(WebDriver driver) {
+		try {
+			File file=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);	
+			Random rd=new Random();
+			int tmp = Math.abs(rd.nextInt());	
+			System.out.print(path+name+"jjjjjjjjjjjjjjjjjjjjjjjjj");
+			FileUtils.copyFile(file, new File(path+name,tmp+"screenshopt.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+}
 }
