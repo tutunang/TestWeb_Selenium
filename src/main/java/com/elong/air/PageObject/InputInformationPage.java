@@ -14,13 +14,15 @@ import com.elong.air.exception.AirException;
 import com.elong.air.tools.WaitTools;
 
 public class InputInformationPage  extends AbstractPageObject{
-public String name="";
+
 	public InputInformationPage(WebDriver driver,String name) {
-		super(driver);
+		super(driver,name);
 		super.name=name;
-		this.name=name;
-		WaitTools.waitToElement(phoneInputTextField, driver);
+		//WaitTools.waitToElement(phoneInputTextField, driver);
 	}
+	
+public String checkOrder_submit="#submit";
+
 @FindBy(css="li[method='Passenger']> #txtPassengerName" )
 public List<WebElement> passengerNameInputTextField;
 
@@ -62,7 +64,7 @@ public CheckOrderPage putPassInfoBean (List<PassenagerInfoBean>s) throws AirExce
 			summbitOrder();
 		
 	}
-	return new CheckOrderPage(driver,name);
+	return new CheckOrderPage(driver,checkOrder_submit);
 }
 
 public void addPassenger(int i){
@@ -71,11 +73,11 @@ public void addPassenger(int i){
 	}
 }
 
-public void summbitOrder() throws AirException{
-	if(summitButton.isEnabled())
-	click(summitButton);
-	else{
-throw new AirException("预定按钮不可用");
-}
-}
+	public void summbitOrder() throws AirException {
+		if (summitButton.isEnabled())
+			click(summitButton);
+		else {
+			throw new AirException("预定按钮不可用");
+		}
+	}
 }

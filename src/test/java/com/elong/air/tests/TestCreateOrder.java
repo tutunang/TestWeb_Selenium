@@ -32,7 +32,7 @@ public class TestCreateOrder extends ConfigDriver{
 @Test
 public void createSingleOrder() throws Exception{
 	log.info("13213131asdasd");
-String s =this.getClass().getSimpleName();
+    String s =this.getClass().getSimpleName();
 	System.out.println(this.getClass().getSimpleName());
 	DataProvider dp=new DataProvider();
 	SearchInfoBean bean=(SearchInfoBean)dp.getBean(this.getClass().getSimpleName());

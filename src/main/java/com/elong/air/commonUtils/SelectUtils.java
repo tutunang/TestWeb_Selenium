@@ -6,11 +6,12 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.elong.air.AbstractObject.AbstractPageObject;
 
-public class SelectUtils extends AbstractPageObject{
+public class SelectUtils{
+//extends AbstractPageObject{
 
-public SelectUtils(WebDriver driver) {
-		super(driver);
-	}
+//public SelectUtils(WebDriver driver) {
+//		super(driver);
+//	}
 
 
 public void selectByIndex(WebElement e ,int index){

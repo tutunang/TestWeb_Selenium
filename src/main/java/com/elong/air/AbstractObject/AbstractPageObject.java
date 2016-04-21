@@ -3,6 +3,7 @@ package com.elong.air.AbstractObject;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
@@ -18,9 +19,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.pagefactory.ElementLocatorFactory;
 
-import com.elong.air.tests.TestCreateOrder;
-import com.elong.air.tools.TakeScreenShot;
-
 public class AbstractPageObject {
 	public WebDriver driver;
 	public static final String NO_SUCH_FRAME = "no-such-frame";
@@ -29,6 +27,7 @@ public class AbstractPageObject {
 	private static int tryTime = 5;
 	public  final static  String path ="D:/eclipseWorkSpace/AirGUIDemo/test-output/ScreenShot/";
 
+	
 	public AbstractPageObject(WebDriver driver, String key) {
 		this.driver = driver;
 		ElementLocatorFactory finder = new AjaxElementLocatorFactory(driver,
@@ -166,4 +165,6 @@ public class AbstractPageObject {
 			e.printStackTrace();
 		}
 }
+
+
 }

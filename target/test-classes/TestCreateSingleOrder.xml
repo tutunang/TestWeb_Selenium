@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DataBean>
-		<startCity>上海</startCity>
-		<endCity>成都</endCity>
-		<startDate>2015-11-10</startDate>
+		<startCity>哈尔滨(HRB)</startCity>
+		<endCity>成都(CTU)</endCity>
+		<startDate>2016-05-19</startDate>
         <oneWay>true</oneWay>
         <roundWay>false</roundWay>
-        <returnDate>2015-11-25</returnDate>
+        <returnDate>2016-03-05</returnDate>
 	<passenagerInfo >
 		<passengerName>于洋</passengerName>
 		<passenagerId>356676672</passenagerId>

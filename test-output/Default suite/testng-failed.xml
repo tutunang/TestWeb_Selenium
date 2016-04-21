@@ -3,15 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.elong.air.tests.TestCreateOrder">
+      <class name="com.elong.air.tests.TestCreateSingleOrder">
         <methods>
-          <include name="Before"/>
           <include name="closeWebDriver"/>
-          <include name="createSingleOrder"/>
           <include name="setUpDriver"/>
-          <include name="After"/>
+          <include name="setUpHomePage"/>
+          <include name="createSingleOrder"/>
         </methods>
-      </class> <!-- com.elong.air.tests.TestCreateOrder -->
+      </class> <!-- com.elong.air.tests.TestCreateSingleOrder -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -11,9 +11,8 @@ public String name="";
 	public PaymentMethodPage(WebDriver driver,String name) {
 		super(driver);
 		super.name=name;
-		this.name=name;
-		// TODO Auto-generated constructor stub
 	}
+
 @FindBy(xpath="//ul[@id='tabMenu']/li[1]")
 public WebElement creditCard;
 

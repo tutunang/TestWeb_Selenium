@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DataBean>
-		<startCity>上海</startCity>
-		<endCity>上海</endCity>
-		<startDate>2015-12-10</startDate>
+		<startCity>哈尔滨(HRB)</startCity>
+		<endCity>哈尔滨(HRB)</endCity>
+		<startDate>2016-2-20</startDate>
         <oneWay>true</oneWay>
         <roundWay>false</roundWay>
         <returnDate>2015-11-25</returnDate>

@@ -1,17 +1,22 @@
 package com.elong.air.PageObject;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.elong.air.AbstractObject.AbstractPageObject;
+import com.elong.air.AbstractObject.HomePage;
+import com.elong.air.AbstractObject.HomePage.Zones;
 import com.elong.air.Bean.SearchInfoBean;
+import com.elong.air.commonUtils.SelectUtils;
+import com.elong.air.exception.AirException;
 
 public class SearchPage extends AbstractPageObject {
- String name="";
 	public SearchPage(WebDriver driver,String ClassName) {
 		super(driver);
 		super.name=ClassName;
-		this.name=ClassName;
+
 	}
 /**
  * */
@@ -42,6 +47,9 @@ public class SearchPage extends AbstractPageObject {
 	@FindBy(css = ".com_results li")
 	public WebElement key;
 
+	@FindBy(xpath = "//div[@id='sugContainer']")
+	public List<WebElement> listOptions;
+	
 	@FindBy(css = ".a_on")
 	public WebElement key1;
 
@@ -55,14 +63,24 @@ public class SearchPage extends AbstractPageObject {
 			System.out.println(bean.getStartCity());
 			this.setInputText(startCity, bean.getStartCity());
 			// TakeScreenShot.takeScreenShot(driver);
-			click(key);
+			getOptionFromLists(bean.getStartCity());
+			//click(key);
 
 		}
 		if (bean.getEndCity() != null && !bean.getEndCity().equals("")) {
 			System.out.println(bean.getEndCity());
 			this.setInputText(endCity, bean.getEndCity());
 			// driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-			click(key1);
+//			SelectUtils s=new SelectUtils();
+//			s.selectByText(listOption, bean.getEndCity());
+			//click(key1);
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			getOptionFromLists(bean.getEndCity());
 		}
 
 		if (bean.getStartDate() != null && !bean.getStartDate().equals("")) {
@@ -84,15 +102,16 @@ public class SearchPage extends AbstractPageObject {
 			}
 		}
 		clickSearchButton();
-		try{if(errorMsg.isDisplayed()){
-			return null;
+		try{
+			if(errorMsg.isDisplayed()){
+			   return null;
 			}
 		}catch(Exception e){
-			e.printStackTrace();
-			return new AirListsPage(driver,name);
+			return new HomePage(driver).getContent(driver, Zones.MID);
 		}
 		
-		return new AirListsPage(driver,name);
+		return null;
+		//new AirListsPage(driver,name);
 
 	
 		}
@@ -104,4 +123,21 @@ public class SearchPage extends AbstractPageObject {
 	public void clickSearchButton(){
 		this.click(searchButton);
 	}
-}
+	public void getOptionFromLists(String target) {
+		for(WebElement e:listOptions){
+			if(e.getText().trim().contains(target)){
+				e.click();
+			}else{
+			
+					try {
+						throw new AirException("Can't find the optionList");
+					} catch (AirException e1) {
+						e1.printStackTrace();
+					}
+				}
+			}
+			
+			
+		}
+	}
+

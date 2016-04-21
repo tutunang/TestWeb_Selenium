@@ -47,7 +47,7 @@ public class PaymentPage extends AbstractPageObject{
 		this.setInputText(creditCardInputTextField, bankaInfo.get("AccountNum"));
 		this.setInputText(accountNameInputTextField,
 				bankaInfo.get("AccountName"));
-		SelectUtils su = new SelectUtils(driver);
+		SelectUtils su = new SelectUtils();
 		su.selectByValue(monthTextField, bankaInfo.get("month"));
 		su.selectByValue(yearTextField, bankaInfo.get("year"));
 		su.selectByText(Cardtype, bankaInfo.get("selCertificateType"));

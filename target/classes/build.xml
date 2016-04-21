@@ -11,7 +11,12 @@
              out="${config.dir}/test-output/index1.html">
              <!-- you need to specify the directory here again -->
             <param name="testNgXslt.outputDir" expression="${config.dir}/test-output/"/>
-            <classpath refid="test.classpath"/>
+            <!--绝对路径-->
+        	<!--D:/eclipseWorkSpace/AirGUIDemo/test-output/-->
+        	<classpath refid="test.classpath"/>
         </xslt>
     </target>
 </project>
+
+
+<!--D:\eclipseWorkSpace\AirGUIDemo\test-output-->

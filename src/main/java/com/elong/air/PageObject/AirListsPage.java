@@ -6,21 +6,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import com.elong.air.AbstractObject.AbstractPageObject;
 import com.elong.air.exception.AirException;
 import com.elong.air.tools.TakeScreenShot;
-import com.elong.air.tools.WaitTools;
 
 public class AirListsPage extends AbstractPageObject{
-String name="";
 	public AirListsPage(WebDriver driver,String name) {
-		super(driver,key1);
+		super(driver,name);
 		super.name=name;
-		this.name=name;
-//		WaitTools.waitToElement(key1, driver);
+
 	}
-	
+	public String inputInformation_Sub_button="//input[@id='btnSaveOrder']";
 	public static String key1="//input[@method='btnBooking']";
 	@FindBy(css = "#btnSearch")
 	public  WebElement searchButton;
@@ -49,7 +45,7 @@ String name="";
 				//driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS); 
 				TakeScreenShot.takeScreenShot(driver);
 				click(book);
-				return new InputInformationPage(driver,name);
+				return new InputInformationPage(driver,inputInformation_Sub_button);
 			}
 
 		}
@@ -95,7 +91,7 @@ String name="";
 		}
 		click(bookButton);
 		
-		return new InputInformationPage(driver,name);
+		return new InputInformationPage(driver,inputInformation_Sub_button);
 
 	}
 	
