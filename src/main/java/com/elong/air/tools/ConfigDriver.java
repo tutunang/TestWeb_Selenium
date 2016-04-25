@@ -3,6 +3,7 @@ package com.elong.air.tools;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
@@ -13,11 +14,16 @@ import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-public class ConfigDriver {
-public static	WebDriver driver;
+import com.elong.air.AbstractObject.BaseEventListener;
+import com.elong.air.AbstractObject.BaseTestClass;
+
+
+public class ConfigDriver extends BaseTestClass{
+//public static	WebDriver driver;
 public static String browserName="firefox";
 //public static String version;
 public static String platform="WINDOWS";
@@ -28,6 +34,16 @@ public void setUpDriver() throws IOException{
        ProfilesIni allProfiles = new ProfilesIni();
        FirefoxProfile firefoxProfile = allProfiles.getProfile("default");
        driver = new FirefoxDriver(firefoxProfile);
+       
+       //---------------注册事件动作监听---------------
+       EventFiringWebDriver event = new EventFiringWebDriver(driver);
+       BaseEventListener eventlis = new BaseEventListener();
+       event.register(eventlis);
+       driver = event;
+       driver.manage().window().maximize();
+       driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+       //---------------事件监听结束---------------
+       
    	   driver.get(visitURL);
 	}
 public void setUpDriver1(){
