@@ -1,9 +1,8 @@
-package com.elong.air.AbstractObject;
+package com.elong.air.PageObject;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-import com.elong.air.PageObject.AirListsPage;
+import com.elong.air.AbstractObject.AbstractPageObject;
 
 public class HomePage extends AbstractPageObject {
 public String searchButton="//input[@id='btnSearch']";

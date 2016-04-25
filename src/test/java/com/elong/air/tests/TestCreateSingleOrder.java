@@ -5,12 +5,11 @@ import java.util.List;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.elong.air.AbstractObject.HomePage;
-import com.elong.air.AbstractObject.HomePage.Zones;
 import com.elong.air.Bean.PassenagerInfoBean;
 import com.elong.air.Bean.SearchInfoBean;
 import com.elong.air.PageObject.AirListsPage;
 import com.elong.air.PageObject.CheckOrderPage;
+import com.elong.air.PageObject.HomePage;
 import com.elong.air.PageObject.InputInformationPage;
 import com.elong.air.PageObject.PaymentMethodPage;
 import com.elong.air.PageObject.PaymentPage;

@@ -1,4 +1,4 @@
-package com.elong.air.commonUtils;
+package com.elong.air.tools;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

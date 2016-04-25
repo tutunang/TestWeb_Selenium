@@ -1,4 +1,4 @@
-package com.elong.air.commonUtils;
+package com.elong.air.tools;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

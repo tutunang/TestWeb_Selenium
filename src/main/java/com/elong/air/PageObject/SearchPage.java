@@ -6,10 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.elong.air.AbstractObject.AbstractPageObject;
-import com.elong.air.AbstractObject.HomePage;
-import com.elong.air.AbstractObject.HomePage.Zones;
 import com.elong.air.Bean.SearchInfoBean;
-import com.elong.air.commonUtils.SelectUtils;
+import com.elong.air.PageObject.HomePage.Zones;
 import com.elong.air.exception.AirException;
 
 public class SearchPage extends AbstractPageObject {

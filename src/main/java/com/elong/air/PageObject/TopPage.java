@@ -1,6 +1,8 @@
-package com.elong.air.AbstractObject;
+package com.elong.air.PageObject;
 
 import org.openqa.selenium.WebDriver;
+
+import com.elong.air.AbstractObject.AbstractPageObject;
 
 public class TopPage extends AbstractPageObject{
 

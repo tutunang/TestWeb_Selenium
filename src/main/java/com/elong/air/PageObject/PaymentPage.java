@@ -7,8 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.elong.air.AbstractObject.AbstractPageObject;
-import com.elong.air.commonUtils.ReadFromProperty;
-import com.elong.air.commonUtils.SelectUtils;
+import com.elong.air.tools.ReadFromProperty;
+import com.elong.air.tools.SelectUtils;
 
 public class PaymentPage extends AbstractPageObject{
 
