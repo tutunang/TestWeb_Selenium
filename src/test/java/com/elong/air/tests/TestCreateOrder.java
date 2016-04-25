@@ -16,6 +16,7 @@ import com.elong.air.PageObject.InputInformationPage;
 import com.elong.air.PageObject.PaymentMethodPage;
 import com.elong.air.PageObject.PaymentPage;
 import com.elong.air.PageObject.SearchPage;
+import com.elong.air.dataProvider.BaseProvider;
 import com.elong.air.dataProvider.DataProvider;
 import com.elong.air.tools.ConfigDriver;
 public class TestCreateOrder extends ConfigDriver{
@@ -29,7 +30,7 @@ public class TestCreateOrder extends ConfigDriver{
 	public void After(){
 		//执行case后置方法
 	}
-@Test
+@Test(dataProvider="testdp",dataProviderClass = BaseProvider.class)
 public void createSingleOrder() throws Exception{
 	log.info("13213131asdasd");
     String s =this.getClass().getSimpleName();

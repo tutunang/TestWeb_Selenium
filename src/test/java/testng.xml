@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Suite" parallel="true"  Configfailurepolicy="skip">
+<listeners>
+<listener class-name="org.uncommons.reportng.HTMLReporter" />
+<listener class-name="com.elong.air.AbstractObject.BaseScreenShortListener" />
+</listeners>
  
 <test name="TestCreateOrder">
   <classes>
