@@ -21,32 +21,31 @@ public class BaseProvider {
 	@DataProvider(name="testdp")
 	public static Iterator<Object[]> createData(Method method, ITestContext context) throws Exception{
 		
-		//ʹ��java������ƣ��Զ���ȡ���еĲ����࣬����ø���ĳ�Ա������ֵ
 		String testclass = method.getDeclaringClass().getName();
-		System.out.println("�����õ���class��"+testclass);
+	//	System.out.println("�����õ���class��"+testclass);
 		Class clzz = Class.forName(testclass);
 		Object object = clzz.newInstance();
 		Field field = clzz.getDeclaredField("sheet");
 		String testsheet = field.get(object).toString();
-		System.out.println("�����õ���sheet��"+testsheet);
-		
+	//	System.out.println("�����õ���sheet��"+testsheet);
+		//读取测试用例的级别
 		int case_count = 0;
 		int case_start = 4;
 		int sheet = Integer.parseInt(testsheet);
 		Priority p = null;
-		final String P_FROM_PROPERTY = OptionFile.readProperties("./conf/Myconfig.properties", "priority");
-		System.out.println("��ȡ�������ȼ�Ϊ��"+P_FROM_PROPERTY);
+		final String P_FROM_PROPERTY = OptionFile.readProperties("D:/eclipseWorkSpace/AirGUIDemo/src/main/resources/config.properties", "priority");
+
 		
-		//---------------��ȡexcel����ȡִ�е�����ʼ--------------
+		//---------------遍历excel找到指定测试级别的casenum--------------
 		
-		String filepaString = OptionFile.readProperties("./conf/Myconfig.properties", "excel");
+		String filepaString = OptionFile.readProperties("D:/eclipseWorkSpace/AirGUIDemo/src/main/resources/config.properties", "excel");
 		List<Integer> listtemp = OptionFile.getExcelPriority(filepaString, sheet, P_FROM_PROPERTY);
-		//System.out.println("OptionFile��list��С"+listtemp.size());
+	
 		if (listtemp.size()<1) {
-			//log.debug("��ȡ�����������ȼ��ĸ���Ϊ0��ע���������ִ��");
+	
 		}
 		
-		//log.debug("��õ��Ĳ����������Ϊ��"+listtemp.size());
+	
 		
 		List<Object[]> list = new ArrayList<Object[]>();
 		for(Integer itg:listtemp) {

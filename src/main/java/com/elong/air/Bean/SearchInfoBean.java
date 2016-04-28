@@ -13,6 +13,7 @@ public class SearchInfoBean {
 	private Boolean roundWay;
 	private String startDate;
 	private String returnDate;
+	private String cabinLevel;
 	//XStream在这里提供了一个@XStreamImplicit(itemFieldName=***)的annotation来满足用户想将List的根节点去掉和改变列表名字的需求，
  @XStreamImplicit()  
 	private List<PassenagerInfoBean> passenagerInfo;
@@ -58,5 +59,12 @@ public class SearchInfoBean {
 	public void setPassenagerInfo(List<PassenagerInfoBean> passenagerInfo) {
 		this.passenagerInfo = passenagerInfo;
 	}
+	public String getCabinLevel() {
+		return cabinLevel;
+	}
+	public void setCabinLevel(String cabinLevel) {
+		this.cabinLevel = cabinLevel;
+	}
+
 	
 }

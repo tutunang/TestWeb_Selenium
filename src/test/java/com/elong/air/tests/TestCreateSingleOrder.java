@@ -14,26 +14,29 @@ import com.elong.air.PageObject.InputInformationPage;
 import com.elong.air.PageObject.PaymentMethodPage;
 import com.elong.air.PageObject.PaymentPage;
 import com.elong.air.PageObject.SearchPage;
+import com.elong.air.dataProvider.BaseProvider;
 import com.elong.air.dataProvider.DataProvider;
+import com.elong.air.dataProvider.ITestData;
 import com.elong.air.tools.ConfigDriver;
 public class TestCreateSingleOrder extends ConfigDriver{
 	HomePage hp;
+	public int sheet = 1;	
 	
 	@BeforeMethod
 	public void setUpHomePage(){
 		hp=new HomePage(driver);
 	}
 	
-@Test
-public void createSingleOrder() throws Exception{
-	System.out.println(this.getClass().getSimpleName());
+@Test(dataProvider="testdp",dataProviderClass = BaseProvider.class)
+public void createSingleOrder(Object caseNum) throws Exception{
+	int rowNum = (int)caseNum;
+	System.out.println("这里是rowNum"+rowNum);
 	
-	DataProvider dp=new DataProvider();
-	SearchInfoBean bean=(SearchInfoBean)dp.getBean(this.getClass().getSimpleName());
-
+//	DataProvider dp=new DataProvider();
+//	SearchInfoBean bean=(SearchInfoBean)dp.getBean(this.getClass().getSimpleName());
+	SearchInfoBean bean=ITestData.getTestDataConvertToBean(sheet,rowNum);
 	SearchPage sp=new SearchPage(driver,this.getClass().getSimpleName());
-		//AirListsPage ap=
-	 AirListsPage ap = sp.searchFlight(bean);
+	AirListsPage ap = sp.searchFlight(bean);
  
 	InputInformationPage ip=ap.getFirstBizopt();
 	List<PassenagerInfoBean> passenagerInfo = bean.getPassenagerInfo();

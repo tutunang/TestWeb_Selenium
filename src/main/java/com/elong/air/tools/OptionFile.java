@@ -468,10 +468,11 @@ public class OptionFile {
 			//Sheet sheet = wb.getSheetAt(index);
 			Row header = sheet.getRow(0);
 			rowcount = sheet.getLastRowNum()+1;
+
 			if(p.equals("ALL") || p.equals("P1") || p.equals("P2") || p.equals("P3")){
 				for(int i=rowstart; i<=rowcount; i++) {
 					value = getExcel(path, index, i, 2);
-					//��������ȼ������P1,��ִ��P1����������ȼ������P2����ִ��P1+P2;�������P3����ִ��P1+P2+P3���������ALL����ִ����������
+				//得到指定用例优先级的的casenum，存入list
 					if(p.equals("ALL")) {
 						list.add(i);
 					}else if(p.equals("P1")) {
@@ -535,6 +536,7 @@ public class OptionFile {
 		for(int i=0;i<elementcount;i++) {
 			String key = getExcel(path, index, rowstart, colstart+i);
 			String value = getExcel(path, index, caseNum, colstart+i);
+			
 			map.put(key, value);
 		}
 				

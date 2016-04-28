@@ -52,7 +52,9 @@ public class SearchPage extends AbstractPageObject {
 	public WebElement key1;
 
 	public AirListsPage searchFlight(SearchInfoBean bean) {
+		System.out.println(bean.getOneWay() +"in Searchpage");
 		if (bean.getOneWay() == true) {
+		
 			this.setCheck(oneWayRadio);
 		}
 
