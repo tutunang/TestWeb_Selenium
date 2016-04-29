@@ -7,11 +7,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.elong.air.AbstractObject.AbstractPageObject;
+import com.elong.air.base.BasePageObject;
 import com.elong.air.tools.TakeScreenShot;
 import com.elong.air.tools.WaitTools;
 
-public class AirListsRoundTripPage extends AbstractPageObject{
+public class AirListsRoundTripPage extends BasePageObject{
 
 	public AirListsRoundTripPage(WebDriver driver) {
 		super(driver);

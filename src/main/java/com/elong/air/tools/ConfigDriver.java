@@ -14,26 +14,28 @@ import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-import com.elong.air.AbstractObject.BaseEventListener;
-import com.elong.air.AbstractObject.BaseTestClass;
+import com.elong.air.base.BaseEventListener;
+import com.elong.air.base.BaseTestClass;
 
 
-public class ConfigDriver extends BaseTestClass{
-//public static	WebDriver driver;
+public class ConfigDriver{
+public static	WebDriver driver;
 public static String browserName="firefox";
 //public static String version;
 public static String platform="WINDOWS";
 public static String visitURL="http://flight.elong.com";
 
-@BeforeClass
-public void setUpDriver() throws IOException{
+//@BeforeClass
+public WebDriver setUpDriver() throws IOException{
        ProfilesIni allProfiles = new ProfilesIni();
        FirefoxProfile firefoxProfile = allProfiles.getProfile("default");
-       driver = new FirefoxDriver(firefoxProfile);
+       //driver = new FirefoxDriver(firefoxProfile);
+       driver = new SafariDriver();
        
        //---------------注册事件动作监听---------------
        EventFiringWebDriver event = new EventFiringWebDriver(driver);
@@ -45,6 +47,7 @@ public void setUpDriver() throws IOException{
        //---------------事件监听结束---------------
        
    	   driver.get(visitURL);
+   	   return driver;
 	}
 public void setUpDriver1(){
 	if(platform.equalsIgnoreCase("WINDOWS")){

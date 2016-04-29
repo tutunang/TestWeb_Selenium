@@ -1,8 +1,9 @@
 package com.elong.air.dataProvider;
 
 import java.io.File;
-import com.elong.air.Bean.PassenagerInfoBean;
-import com.elong.air.Bean.SearchInfoBean;
+
+import com.elong.air.bean.PassenagerInfoBean;
+import com.elong.air.bean.SearchInfoBean;
 import com.thoughtworks.xstream.XStream;
 
 public class DataProvider {

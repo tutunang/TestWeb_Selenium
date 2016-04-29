@@ -2,25 +2,27 @@
 <suite name="Suite" parallel="true"  Configfailurepolicy="skip">
 <listeners>
 <listener class-name="org.uncommons.reportng.HTMLReporter" />
-<listener class-name="com.elong.air.AbstractObject.BaseScreenShortListener" />
+<listener class-name="com.elong.air.base.BaseScreenShortListener" />
 </listeners>
- 
+ <!--  
 <test name="TestCreateOrder">
   <classes>
       <class name="com.elong.air.tests.TestCreateOrder"/>
   </classes>
 </test>
+-->
 <test name="TestCreateSingleOrder">
   <classes>
       <class name="com.elong.air.tests.TestCreateSingleOrder"/>
   </classes>
 </test> 
-
+<!-- 
 <test name="TestSearchField">
   <classes>
       <class name="com.elong.air.tests.TestSearchField"/>
   </classes>
-</test> 
+ 
+</test>  -->
 </suite> 
 <!-- 指定测试方法 
 <methods>

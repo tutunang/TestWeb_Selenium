@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import com.elong.air.AbstractObject.AbstractPageObject;
+import com.elong.air.base.BasePageObject;
 
 public class SelectUtils{
 //extends AbstractPageObject{

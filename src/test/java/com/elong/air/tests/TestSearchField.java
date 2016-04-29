@@ -5,9 +5,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.elong.air.Bean.SearchInfoBean;
 import com.elong.air.PageObject.HomePage;
 import com.elong.air.PageObject.SearchPage;
+import com.elong.air.bean.SearchInfoBean;
 import com.elong.air.dataProvider.DataProvider;
 import com.elong.air.tools.ConfigDriver;
 

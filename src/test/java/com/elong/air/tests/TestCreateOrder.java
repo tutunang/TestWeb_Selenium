@@ -8,14 +8,14 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.elong.air.Bean.PassenagerInfoBean;
-import com.elong.air.Bean.SearchInfoBean;
 import com.elong.air.PageObject.AirListsPage;
 import com.elong.air.PageObject.CheckOrderPage;
 import com.elong.air.PageObject.InputInformationPage;
 import com.elong.air.PageObject.PaymentMethodPage;
 import com.elong.air.PageObject.PaymentPage;
 import com.elong.air.PageObject.SearchPage;
+import com.elong.air.bean.PassenagerInfoBean;
+import com.elong.air.bean.SearchInfoBean;
 import com.elong.air.dataProvider.BaseProvider;
 import com.elong.air.dataProvider.DataProvider;
 import com.elong.air.tools.ConfigDriver;

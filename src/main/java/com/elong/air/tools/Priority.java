@@ -1,34 +1,36 @@
 package com.elong.air.tools;
+
 /**
- * @author  qiaojiafei
- * @version 创建时间：2016年4月25日 下午1:53:40
- * 类说明
+ * 测试用例枚举类
+ * 
+ * @author qiaojiafei
+ * @version 创建时间：2016年4月25日 下午1:53:40 类说明
  */
 public enum Priority {
-	P1(){
+	P1() {
 		@Override
-        public String toString() {
-            return "P1";
-        }
+		public String toString() {
+			return "P1";
+		}
 	},
-	P2(){
+	P2() {
 		@Override
-        public String toString() {
-            return "P2";
-        }
+		public String toString() {
+			return "P2";
+		}
 	},
-	P3(){
+	P3() {
 		@Override
-        public String toString() {
-            return "P3";
-        }
+		public String toString() {
+			return "P3";
+		}
 	},
-	ALL(){
+	ALL() {
 		@Override
-        public String toString() {
-            return "ALL";
-        }
+		public String toString() {
+			return "ALL";
+		}
 	};
-    Priority() {
-    }
+	Priority() {
+	}
 }

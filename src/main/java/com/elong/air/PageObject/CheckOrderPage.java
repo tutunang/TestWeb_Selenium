@@ -6,10 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.elong.air.AbstractObject.AbstractPageObject;
+import com.elong.air.base.BasePageObject;
 import com.elong.air.exception.AirException;
 
-public class CheckOrderPage extends AbstractPageObject{
+public class CheckOrderPage extends BasePageObject{
 
 	public CheckOrderPage(WebDriver driver,String name) {
 		super(driver);
@@ -48,7 +48,7 @@ public PaymentMethodPage submitOrder() throws AirException {
 
 
 
-public <expectedPageObject> expectedPageObject summitOrder(Class<? extends AbstractPageObject> expectedPageObject) throws Exception {
+public <expectedPageObject> expectedPageObject summitOrder(Class<? extends BasePageObject> expectedPageObject) throws Exception {
    driver.getWindowHandle();
    driver.getCurrentUrl();
    driver.getTitle();

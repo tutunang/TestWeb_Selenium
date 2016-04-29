@@ -1,4 +1,4 @@
-package com.elong.air.AbstractObject;
+package com.elong.air.base;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,96 +22,84 @@ import org.openqa.selenium.support.pagefactory.ElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.elong.air.tools.OptionFile;
 
-public class AbstractPageObject {
-	public WebDriver driver;
+public class BasePageObject {
+
 	public static final String NO_SUCH_FRAME = "no-such-frame";
-	private Logger log = Logger.getLogger(AbstractPageObject.class);
-	protected String name="";
-	private static int tryTime = 5;
-	public  final static  String path ="D:/eclipseWorkSpace/AirGUIDemo/test-output/ScreenShot/";
+	protected String name = "";
 
-	
-	private final int TIMEOUT = 15;
+	public WebDriver driver;
+	private Logger log = Logger.getLogger(BasePageObject.class);
+	// 全局的超时时间设置
+	private final int TIMEOUT = Integer.parseInt(OptionFile.readProperties(
+			"./src/main/resources/config.properties", "timeout"));;
+
 	/**
-	 * 构造方法时，判断页面title是否正确
+	 * 构造方法时，判断页面title是否正确,使用传入的title判断页面title
+	 * 
 	 * @param driver
 	 * @param title
 	 */
-	public AbstractPageObject(WebDriver driver, final String title) {
+	public BasePageObject(WebDriver driver, final String title) {
 		this.driver = driver;
 
-		WebDriverWait wait = new WebDriverWait(driver,TIMEOUT);
-		try{
-			boolean flag = wait.until(new ExpectedCondition<Boolean>(){
-				@Override
-	            public Boolean apply(WebDriver arg0) {
-	                // TODO Auto-generated method stub
-					String acttitle = arg0.getTitle();
-	                return acttitle.equals(title);	                
-	            }});
-		}catch(TimeoutException te) {
-			throw new IllegalStateException("当前不是预期页面，当前页面title是：" + driver.getTitle());
-		}
-		
-		PageFactory.initElements(new AjaxElementLocatorFactory(driver, TIMEOUT) , this);
-		
-	}
-	
-	/*
-	public AbstractPageObject(WebDriver driver, String key) {
-		this.driver = driver;
-		ElementLocatorFactory finder = new AjaxElementLocatorFactory(driver,
-				120);
-		PageFactory.initElements(finder, this);
-		boolean flag = true;
-		int i = 0;
-		while (flag && i < tryTime) {
-			i++;
-			try {
-				driver.findElement(By.xpath(key));
-				flag = false;
-			} catch (NoSuchElementException e) {
-				flag = true;
-			}
-			if (flag) {
-				try {
-					Thread.sleep(2000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				finder = new AjaxElementLocatorFactory(driver, 120);
-				PageFactory.initElements(finder, this);
-			}
-			//log.info("第" + i + "次尝试。");
-		}
-		if (flag) {
-			log.error("尝试" + i + "次后无法获取航班信息。");
-			driver.close();
-			driver.quit();
-
-		
-		}else{
-			log.info("尝试" + i + "次后成功。");
-			
-		}
-	}
-	*/
-
-	public AbstractPageObject(WebDriver driver) {
+		WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
 		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			boolean flag = wait.until(new ExpectedCondition<Boolean>() {
+				@Override
+				public Boolean apply(WebDriver arg0) {
+					// TODO Auto-generated method stub
+					String acttitle = arg0.getTitle();
+					return acttitle.equals(title);
+				}
+			});
+		} catch (TimeoutException te) {
+			throw new IllegalStateException("当前不是预期页面，当前页面title是："
+					+ driver.getTitle());
 		}
-		this.driver = driver;
-		ElementLocatorFactory finder = new AjaxElementLocatorFactory(driver,
-				120);
-		PageFactory.initElements(finder, this);
+
+		PageFactory.initElements(
+				new AjaxElementLocatorFactory(driver, TIMEOUT), this);
+
 	}
 
-	public void click (WebElement element) {
+	/***
+	 * 构造方法时，判断页面title是否正确,使用pagetitle.properties读取的title判断页面title
+	 * 
+	 * @param driver
+	 */
+	public BasePageObject(WebDriver driver) {
+		String pagetitle = this.getClass().getCanonicalName();
+		final String title = OptionFile.readProperties(
+				"./src/main/resources/pagetitle.properties", pagetitle);
+		this.driver = driver;
+		System.out.println("当前page类是：" + pagetitle + " ;取到的title是：" + title);
+
+		WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
+		try {
+			boolean flag = wait.until(new ExpectedCondition<Boolean>() {
+				@Override
+				public Boolean apply(WebDriver arg0) {
+					// TODO Auto-generated method stub
+					String acttitle = arg0.getTitle();
+					return acttitle.equals(title);
+				}
+			});
+		} catch (TimeoutException te) {
+			throw new IllegalStateException("当前不是预期页面，当前页面title是："
+					+ driver.getTitle());
+		}
+
+		PageFactory.initElements(
+				new AjaxElementLocatorFactory(driver, TIMEOUT), this);
+	}
+
+	public BasePageObject() {
+	}
+
+	// ---------------------------------------------------------------------------------------------------------
+	public void click(WebElement element) {
 		// switchFrame(element);
 		takeScreenShot(driver);
 		element.click();
@@ -185,18 +173,21 @@ public class AbstractPageObject {
 			driver.switchTo().window(handle);
 		}
 	}
-//截图
-	public  void  takeScreenShot(WebDriver driver) {
+
+	// 截图
+	public void takeScreenShot(WebDriver driver) {
+		final String path = "D:/eclipseWorkSpace/AirGUIDemo/test-output/ScreenShot/";
 		try {
-			File file=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);	
-			Random rd=new Random();
-			int tmp = Math.abs(rd.nextInt());	
-			System.out.print(path+name+"jjjjjjjjjjjjjjjjjjjjjjjjj");
-			FileUtils.copyFile(file, new File(path+name,tmp+"screenshopt.png"));
+			File file = ((TakesScreenshot) driver)
+					.getScreenshotAs(OutputType.FILE);
+			Random rd = new Random();
+			int tmp = Math.abs(rd.nextInt());
+			System.out.print(path + name + "jjjjjjjjjjjjjjjjjjjjjjjjj");
+			FileUtils.copyFile(file, new File(path + name, tmp
+					+ "screenshopt.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-}
-
+	}
 
 }

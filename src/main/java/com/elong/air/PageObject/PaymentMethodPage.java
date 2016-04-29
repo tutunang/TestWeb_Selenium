@@ -4,9 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.elong.air.AbstractObject.AbstractPageObject;
+import com.elong.air.base.BasePageObject;
 
-public class PaymentMethodPage extends AbstractPageObject{
+public class PaymentMethodPage extends BasePageObject{
 public String name="";
 	public PaymentMethodPage(WebDriver driver,String name) {
 		super(driver);

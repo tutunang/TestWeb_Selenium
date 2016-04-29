@@ -6,11 +6,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.elong.air.AbstractObject.AbstractPageObject;
+import com.elong.air.base.BasePageObject;
 import com.elong.air.tools.ReadFromProperty;
 import com.elong.air.tools.SelectUtils;
 
-public class PaymentPage extends AbstractPageObject{
+public class PaymentPage extends BasePageObject{
 
 	public PaymentPage(WebDriver driver) {
 		super(driver);
