@@ -30,7 +30,8 @@ public class BasePageObject {
 	protected String name = "";
 
 	public WebDriver driver;
-	private Logger log = Logger.getLogger(BasePageObject.class);
+	//private Logger log = Logger.getLogger(BasePageObject.class);
+	protected Logger log = Logger.getLogger(this.getClass());
 	// 全局的超时时间设置
 	private final int TIMEOUT = Integer.parseInt(OptionFile.readProperties(
 			"./src/main/resources/config.properties", "timeout"));;
@@ -42,6 +43,9 @@ public class BasePageObject {
 	 * @param title
 	 */
 	public BasePageObject(WebDriver driver, final String title) {
+		log.debug("------使用BasePageObject(WebDriver driver)构造方法开始------");
+		
+		//final String pagetitle = this.getClass().getCanonicalName();
 		this.driver = driver;
 
 		WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
@@ -51,6 +55,7 @@ public class BasePageObject {
 				public Boolean apply(WebDriver arg0) {
 					// TODO Auto-generated method stub
 					String acttitle = arg0.getTitle();
+					log.debug("------预期页面title是："+title+"，实际页面title是：acttitle");
 					return acttitle.equals(title);
 				}
 			});
@@ -70,12 +75,14 @@ public class BasePageObject {
 	 * @param driver
 	 */
 	public BasePageObject(WebDriver driver) {
-		String pagetitle = this.getClass().getCanonicalName();
+		log.debug("------使用BasePageObject(WebDriver driver)构造方法开始------");
+		
+		final String pagetitle = this.getClass().getCanonicalName();
 		final String title = OptionFile.readProperties(
 				"./src/main/resources/pagetitle.properties", pagetitle);
 		this.driver = driver;
 		System.out.println("当前page类是：" + pagetitle + " ;取到的title是：" + title);
-
+		
 		WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
 		try {
 			boolean flag = wait.until(new ExpectedCondition<Boolean>() {
@@ -83,6 +90,7 @@ public class BasePageObject {
 				public Boolean apply(WebDriver arg0) {
 					// TODO Auto-generated method stub
 					String acttitle = arg0.getTitle();
+					log.debug("------取到的预期页面title是："+title+"，实际页面title是：acttitle");
 					return acttitle.equals(title);
 				}
 			});
@@ -98,7 +106,7 @@ public class BasePageObject {
 	public BasePageObject() {
 	}
 
-	// ---------------------------------------------------------------------------------------------------------
+	// -------------------------常用方法封装--------------------------------------------------------------------------------
 	public void click(WebElement element) {
 		// switchFrame(element);
 		takeScreenShot(driver);
@@ -107,7 +115,8 @@ public class BasePageObject {
 
 	public void setInputText(WebElement element, String text) {
 		// switchFrame(element);
-		element.clear();
+		System.out.println("--------sendkeys:"+text);
+		//element.clear();//暂时注销，登录密码框会报错
 		element.sendKeys(text);
 	}
 

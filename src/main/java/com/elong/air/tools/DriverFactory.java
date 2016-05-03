@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -34,6 +35,8 @@ public class DriverFactory {
 			.parseInt(OptionFile.readProperties(
 					"./src/main/resources/config.properties", "timeout"));
 
+	private static Logger log = Logger.getLogger(DriverFactory.class);
+	
 	/**
 	 * 根据配置文件初始化Webdriver
 	 * 
@@ -43,6 +46,7 @@ public class DriverFactory {
 	 * @throws
 	 */
 	public static WebDriver setUpDriver() {
+		log.debug("------启动浏览器，准备测试环境是(系统："+PLATFORM+"，浏览器是："+BROWSER+"，是否使用远程服务："+REMOTEFLAG+"）------");
 		if (StringUtils.isNotEmpty(REMOTEFLAG)
 				&& REMOTEFLAG.equalsIgnoreCase("N")) {
 			if (StringUtils.isNotEmpty(PLATFORM)
@@ -89,6 +93,7 @@ public class DriverFactory {
 	 * @throws
 	 */
 	public static void tearDownDriver(WebDriver driver) {
+		log.debug("------退出浏览器------");
 		driver.quit();
 	}
 

@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +25,8 @@ import com.elong.air.tools.DriverFactory;
  */
 public class BaseTestClass {
 	protected WebDriver driver;
-
+	protected Logger log = Logger.getLogger(this.getClass());
+	
 	protected BaseTestClass() {
 
 	}
@@ -43,13 +45,17 @@ public class BaseTestClass {
 
 	@BeforeClass
 	public void befclass() {
+		log.debug("------执行beforeclass开始------");
 		driver = DriverFactory.setUpDriver();
-		driver.get("http://flight.elong.com");
+		driver.get("https://secure.elong.com/passport/login_cn.html");
+		log.debug("------执行beforeclass结束------");
 	}
 
 	@AfterClass
 	public void aftclass() {
+		log.debug("------执行afterclass开始------");
 		DriverFactory.tearDownDriver(driver);
+		log.debug("------执行afterclass结束------");
 	}
 
 	/**
@@ -82,8 +88,8 @@ public class BaseTestClass {
 				 * System.out.println("5========="+result.getTestClass
 				 * ().getName());//ok
 				 */
-				System.out.println("---------------faile file name: "
-						+ filename);
+				//System.out.println("---------------faile file name: "
+				//		+ filename);
 				File file = new File("ExceptionScreenshotImg/" + fileclass);
 				if (!file.exists()) {
 					file.mkdir();
@@ -93,8 +99,9 @@ public class BaseTestClass {
 
 				Reporter.setCurrentTestResult(result);
 				String filepath = screenshot.getAbsolutePath();
-				System.out.println("-------------失败截图路径----------------"
-						+ filepath);
+				//System.out.println("-------------失败截图路径----------------"
+				//		+ filepath);
+				log.debug("------发生异常，自动截图，图片存放路径是："+filepath+"------");
 				// Reporter.log("<a href=\"" + filepath +
 				// "\" target=\"_blank\">Failed Screen Shot</a>",true);
 				Reporter.log("Failed Screen Shot Path：" + filepath, true);

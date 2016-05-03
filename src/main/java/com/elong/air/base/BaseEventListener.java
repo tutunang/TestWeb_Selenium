@@ -2,6 +2,7 @@ package com.elong.air.base;
 
 import java.lang.reflect.Field;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +16,8 @@ import org.openqa.selenium.support.events.WebDriverEventListener;
  * @version 创建时间：2016年4月25日 下午2:18:42 类说明
  */
 public class BaseEventListener implements WebDriverEventListener {
-
+	protected Logger log = Logger.getLogger(this.getClass());
+	
 	@Override
 	public void afterChangeValueOf(WebElement arg0, WebDriver arg1) {
 		// TODO Auto-generated method stub
@@ -30,7 +32,6 @@ public class BaseEventListener implements WebDriverEventListener {
 	@Override
 	public void afterFindBy(By arg0, WebElement arg1, WebDriver arg2) {
 		// TODO Auto-generated method stub
-		System.out.println("findElement的By和value分别是：" + arg0.toString());
 
 	}
 
@@ -67,6 +68,7 @@ public class BaseEventListener implements WebDriverEventListener {
 	@Override
 	public void beforeClickOn(WebElement arg0, WebDriver arg1) {
 		// TODO Auto-generated method stub
+		log.debug("------点击页面元素的文本是："+arg0.getText()+"------");
 		((JavascriptExecutor) arg1).executeScript(
 				"arguments[0].style.border=\"5px solid red\"", arg0);
 	}
@@ -74,7 +76,7 @@ public class BaseEventListener implements WebDriverEventListener {
 	@Override
 	public void beforeFindBy(By arg0, WebElement arg1, WebDriver arg2) {
 		// TODO Auto-generated method stub
-
+		log.debug("------开始查找页面元素，查找的By和对应的value分别是："+arg0.toString()+"------");
 	}
 
 	@Override
@@ -92,7 +94,8 @@ public class BaseEventListener implements WebDriverEventListener {
 	@Override
 	public void beforeNavigateTo(String arg0, WebDriver arg1) {
 		// TODO Auto-generated method stub
-		System.out.println("NavigateTo：" + arg0);
+		//System.out.println("NavigateTo：" + arg0);
+		log.debug("------访问页面地址是："+arg0+"------");
 	}
 
 	@Override

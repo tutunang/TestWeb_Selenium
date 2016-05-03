@@ -1,6 +1,7 @@
 package com.elong.air.dataProvider;
 
 import java.util.Map;
+import java.util.Set;
 
 import com.elong.air.tools.OptionFile;
 
@@ -11,12 +12,17 @@ import com.elong.air.tools.OptionFile;
  * @version 创建时间：2016年4月25日 下午1:55:46 类说明
  */
 public class ITestData {
-	static String filepaString = OptionFile.readProperties(
-			"./src/main/resources/config.properties", "excel");
-
+	//static String filepaString = OptionFile.readProperties(
+	//		"./src/main/resources/config.properties", "excel");
+	static String filepaString = "./src/test/resources/testdata.xls";
 	public static Map<String, String> getTestData(int sheet, int caseNum) {
 		Map<String, String> map = OptionFile.getExcelDataByCaseNum(
 				filepaString, sheet, caseNum);
+		Set<String> set = map.keySet();
+		for(String name:set) {
+			String value = map.get(name);
+			System.out.println("map中的name："+name+"，value："+value);
+		}
 		return map;
 	}
 }
