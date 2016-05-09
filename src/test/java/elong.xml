@@ -13,7 +13,7 @@
 -->
 <test name="TestCreateSingleOrder">
   <classes>
-      <class name="com.elong.air.tests.TestCreateSingleOrder"/>
+      <class name="com.elong.air.tests.TestLogin"/>
   </classes>
 </test> 
 <!-- 

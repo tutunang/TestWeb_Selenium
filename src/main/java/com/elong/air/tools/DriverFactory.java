@@ -105,7 +105,7 @@ public class DriverFactory {
 	private static WebDriver getRemoteDriverOnMAC(WebDriver driver,
 			String browser) {
 		final String hubURL = OptionFile.readProperties(
-				"./src/main/resources/config.properties", "remoteflag");
+				"./src/main/resources/config.properties", "hubURL");
 		DesiredCapabilities capability = null;
 
 		switch (browser) {
@@ -157,7 +157,7 @@ public class DriverFactory {
 	private static WebDriver getRemoteDriverOnWINDOW(WebDriver driver,
 			String browser) {
 		final String hubURL = OptionFile.readProperties(
-				"./src/main/resources/config.properties", "remoteflag");
+				"./src/main/resources/config.properties", "hubURL");
 		DesiredCapabilities capability = null;
 
 		switch (browser) {

@@ -2,24 +2,28 @@ package com.elong.air.base;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Iterator;
-import java.util.Map;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
-import org.openqa.selenium.support.pagefactory.ElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.elong.air.tools.OptionFile;
@@ -50,7 +54,7 @@ public class BasePageObject {
 
 		WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
 		try {
-			boolean flag = wait.until(new ExpectedCondition<Boolean>() {
+			wait.until(new ExpectedCondition<Boolean>() {
 				@Override
 				public Boolean apply(WebDriver arg0) {
 					// TODO Auto-generated method stub
@@ -85,7 +89,7 @@ public class BasePageObject {
 		
 		WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
 		try {
-			boolean flag = wait.until(new ExpectedCondition<Boolean>() {
+			wait.until(new ExpectedCondition<Boolean>() {
 				@Override
 				public Boolean apply(WebDriver arg0) {
 					// TODO Auto-generated method stub
@@ -106,7 +110,7 @@ public class BasePageObject {
 	public BasePageObject() {
 	}
 
-	// -------------------------常用方法封装--------------------------------------------------------------------------------
+	/*-------------------------常用方法封装------------------------------------------------------------*/
 	public void click(WebElement element) {
 		// switchFrame(element);
 		takeScreenShot(driver);
@@ -116,7 +120,7 @@ public class BasePageObject {
 	public void setInputText(WebElement element, String text) {
 		// switchFrame(element);
 		System.out.println("--------sendkeys:"+text);
-		//element.clear();//暂时注销，登录密码框会报错
+		element.clear();//暂时注销，登录密码框会报错
 		element.sendKeys(text);
 	}
 
@@ -198,5 +202,218 @@ public class BasePageObject {
 			e.printStackTrace();
 		}
 	}
+	/*----------------------------qiaojiafei----------------------------*/
+	/**
+	 * 刷新页面
+	 */
+	public void refreshPage() {
+		driver.navigate().refresh();
+	}
+	/**
+	 * 浏览器前进
+	 */
+	public void forwardPage() {
+		driver.navigate().forward();
+	}
+	/**
+	 * 浏览器后退
+	 */
+	public void backPage() {
+		driver.navigate().back();
+	}
+	/**
+	 * 确认Alert弹框
+	 */
+	public void alertConfirm() {
+		Alert alert = driver.switchTo().alert();
+		try {
+			alert.accept();
+		} catch (Exception notFindAlert) {
+			throw notFindAlert;
+		}
+	}
+	/**
+	 * 关闭Alter弹框
+	 */
+	public void alertDismiss() {
+		Alert alert = driver.switchTo().alert();
+		try {
+			alert.dismiss();
+		} catch (Exception notFindAlert) {
+			throw notFindAlert;
+		}
+	}
+	/**
+	 * 获得Alter弹框文本内容
+	 * @return
+	 */
+	public String getAlertText() {
+		Alert alert = driver.switchTo().alert();
+		try {
+			return alert.getText();
+		} catch (Exception notFindAlert) {
+			throw notFindAlert;
+		}
+	}
+	/**
+	 * 执行JavaScript
+	 * @param js
+	 */
+	public void executorJS(String js) {
+		JavascriptExecutor jsexe = (JavascriptExecutor) driver;
+		jsexe.executeScript(js);
 
+	}
+	/**
+	 * 跳转至默认容器，即最顶层Frame
+	 */
+	public void toDefaultContent() {
+		driver.switchTo().defaultContent();
+	}
+	/**
+	 * 跳转至父级(上一层)Frame
+	 */
+	public void toParentFrame() {
+		driver.switchTo().parentFrame();
+	}
+	/**
+	 * 跳转至Frame，可传参数类型：String、Integer、WebElment
+	 * @param ob
+	 */
+	public void toFrame(Object ob) {
+		if(ob instanceof  String) {
+			String s = (String)ob;
+			driver.switchTo().frame(s);
+		}else if (ob instanceof  WebElement) {
+			WebElement we = (WebElement)ob;
+			driver.switchTo().frame(we);
+		}else if(ob instanceof  Integer){
+			Integer it = (Integer)ob;
+			driver.switchTo().frame(it.intValue());
+		}else{
+			log.debug("");
+		}
+	}
+	/**
+	 * 使用JS给富文本框传值
+	 * @param element
+	 * @param text
+	 */
+	public void setRichTextBox(WebElement element, String text) {		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].innerHTML = \"" + text + "\"", element);
+	}
+	/**
+	 * 使用JS获取富文本框内容
+	 * @param element
+	 * @param text
+	 * @return
+	 */
+	public String getRichTextBox(WebElement element, String text) {	
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		String result = (String) js.executeScript(
+				"arguments[0].getInnerHTML()", element);
+		return result;
+	}
+	/**
+	 * 使用Actions来滑动滚动条到页面底部
+	 */
+	public void scrollToBottom() {
+		Actions a = new Actions(driver);
+		a.sendKeys(Keys.END).perform();
+	}
+	/**
+	 * 使用Actions来滑动滚动条到页面顶部
+	 */
+	public void scrollToTop() {
+		Actions a = new Actions(driver);
+        a.sendKeys(Keys.HOME).perform();
+	}
+	/**
+	 * 使用Actions来滑动滚动条到指定元素
+	 */
+	public void scrollToElement(WebElement element) {
+		Actions a = new Actions(driver);
+	    a.moveToElement(element).perform();
+	}
+	
+	public void selectByIndex(WebElement element, int index) {
+		Select select = new Select(element);
+		select.selectByIndex(index);;
+	}
+	
+	public void selectByValue(WebElement element, String value) {
+		Select select = new Select(element);
+		select.selectByValue(value);
+	}
+	public void selectByVisibleText(WebElement element, String text) {
+		Select select = new Select(element);
+		select.selectByVisibleText(text);
+	}
+	/**
+	 * 得到Select对象
+	 * @param element
+	 * @return
+	 */
+	public Select getSelect(WebElement element) {		
+		Select select = new Select(element);		
+		return select;
+	}
+	
+	public void selectByIndex(Select select, int index) {
+		select.selectByIndex(index);;
+	}
+	
+	public void selectByValue(Select select, String value) {
+		select.selectByValue(value);
+	}
+	public void selectByVisibleText(Select select, String text) {
+		select.selectByVisibleText(text);
+	}
+	/**
+	 * 判断元素是否可见
+	 * @param by
+	 * @param time
+	 * @return
+	 */
+	public boolean isElementPresent(final By by, int time) {
+        boolean isPresent = false;
+        WebDriverWait wait = new WebDriverWait(driver, time);
+        isPresent = wait.until(new ExpectedCondition<WebElement>() {
+            @Override
+            public WebElement apply(WebDriver dr) {
+                return dr.findElement(by);
+            }
+        }).isDisplayed();
+        return isPresent;
+	}
+	/**
+	 * 切换浏览器标签至新打开窗口，当前浏览器打开多个(>2)浏览器标签时
+	 * @param set
+	 */
+	public void switchToWindow(Set<String> set) {
+	   Set<String> setCur = driver.getWindowHandles();
+	   if(setCur.containsAll(set)) {
+		   setCur.removeAll(set);
+	   }
+	   String newwindow = Arrays.toString(setCur.toArray());
+	   driver.switchTo().window(newwindow);
+	}
+	/**
+	 * 切换浏览器标签至新打开窗口
+	 * @param set
+	 */
+	public void switchToWindow() {
+	   String curW = driver.getWindowHandle();
+	   Set<String> set = driver.getWindowHandles();
+	   for(String s:set) {
+		   if(!s.equals(curW)) {
+			   driver.switchTo().window(s);
+		   }
+	   }
+	}
+	public void testriver() {
+	  
+	}
+	/*----------------------------qiaojiafei----------------------------*/
 }

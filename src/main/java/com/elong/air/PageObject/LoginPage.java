@@ -28,7 +28,14 @@ public class LoginPage extends BasePageObject{
 	public HomePage validaLogin(LoginInfoBean bean) {
 		this.setInputText(input_username, bean.getUsername());
 		this.click(temp_password);
-		this.setInputText(input_password, bean.getPassword());
+		//this.setInputText(input_password, bean.getPassword());
+		input_password.sendKeys("123456");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 		
 	}
