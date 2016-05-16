@@ -1,6 +1,5 @@
 package com.elong.air.base;
 
-import java.lang.reflect.Field;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -108,6 +107,18 @@ public class BaseEventListener implements WebDriverEventListener {
 	public void onException(Throwable arg0, WebDriver arg1) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void afterNavigateRefresh(WebDriver arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void beforeNavigateRefresh(WebDriver arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
