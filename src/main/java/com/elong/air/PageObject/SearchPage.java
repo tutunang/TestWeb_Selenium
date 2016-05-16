@@ -7,11 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.elong.air.PageObject.HomePage.Zones;
-import com.elong.air.base.BasePageObject;
+import com.elong.air.base.BasePage;
 import com.elong.air.bean.SearchInfoBean;
 import com.elong.air.exception.AirException;
 
-public class SearchPage extends BasePageObject {
+public class SearchPage extends BasePage {
 
 	public SearchPage() {
 	}

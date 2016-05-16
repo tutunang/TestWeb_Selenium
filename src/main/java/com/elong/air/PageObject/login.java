@@ -7,9 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.elong.air.base.BasePageObject;
+import com.elong.air.base.BasePage;
 
-public class login extends BasePageObject{
+public class login extends BasePage{
 	public login(WebDriver driver) {
 		super(driver);
 	}

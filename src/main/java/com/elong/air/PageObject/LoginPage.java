@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.elong.air.base.BasePageObject;
+import com.elong.air.base.BasePage;
 import com.elong.air.bean.LoginInfoBean;
 
 /** 
@@ -12,7 +12,7 @@ import com.elong.air.bean.LoginInfoBean;
  * @version 创建时间：2016年5月3日 上午10:30:26 
  * 类说明 
  */
-public class LoginPage extends BasePageObject{
+public class LoginPage extends BasePage{
 	public LoginPage(WebDriver driver) {
 		super(driver);
 	}

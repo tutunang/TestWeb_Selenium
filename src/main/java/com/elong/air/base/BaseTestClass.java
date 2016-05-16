@@ -16,6 +16,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import com.elong.air.tools.DriverFactory;
+import com.elong.air.tools.OptionFile;
 
 /**
  * 顶层Test类，com.elong.air.tests下面的所有test类都应继承该类，该类调用了WebDriver的初始化及销毁方法
@@ -47,7 +48,7 @@ public class BaseTestClass {
 	public void befclass() {
 		log.debug("------执行beforeclass开始------");
 		driver = DriverFactory.setUpDriver();
-		driver.get("https://secure.elong.com/passport/login_cn.html");
+		visitorURL();
 		log.debug("------执行beforeclass结束------");
 	}
 
@@ -56,6 +57,11 @@ public class BaseTestClass {
 		log.debug("------执行afterclass开始------");
 		DriverFactory.tearDownDriver(driver);
 		log.debug("------执行afterclass结束------");
+	}
+	
+	private void visitorURL() {
+		String url = OptionFile.readProperties("./src/test/resources/logininfo.properties", "URL");
+		driver.get(url);
 	}
 
 	/**

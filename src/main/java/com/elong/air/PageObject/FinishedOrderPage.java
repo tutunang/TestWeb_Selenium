@@ -4,10 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.elong.air.base.BasePageObject;
+import com.elong.air.base.BasePage;
 import com.elong.air.exception.AirException;
 
-public class FinishedOrderPage extends BasePageObject{
+public class FinishedOrderPage extends BasePage{
 
 	public FinishedOrderPage(WebDriver driver) {
 		super(driver);

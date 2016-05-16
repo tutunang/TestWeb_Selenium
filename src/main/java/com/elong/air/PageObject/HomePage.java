@@ -2,9 +2,9 @@ package com.elong.air.PageObject;
 
 import org.openqa.selenium.WebDriver;
 
-import com.elong.air.base.BasePageObject;
+import com.elong.air.base.BasePage;
 
-public class HomePage extends BasePageObject {
+public class HomePage extends BasePage {
 public String searchButton="//input[@id='btnSearch']";
 public static String bookingButton="//input[@method='btnBooking']";
 public static String flightInfo="//div[@class='list_seo clx']";
@@ -19,7 +19,7 @@ public static String flightInfo="//div[@class='list_seo clx']";
 		MID, TOP, END
 	};
 
-	public <T extends BasePageObject>  T getContent(WebDriver driver, Zones x) {
+	public <T extends BasePage>  T getContent(WebDriver driver, Zones x) {
 		//super(driver);
 		String z=x.toString();
 		if (z.equals("MID")) {

@@ -2,9 +2,9 @@ package com.elong.air.PageObject;
 
 import org.openqa.selenium.WebDriver;
 
-import com.elong.air.base.BasePageObject;
+import com.elong.air.base.BasePage;
 
-public class CommonPage extends BasePageObject{
+public class CommonPage extends BasePage{
 	 public CommonPage(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub

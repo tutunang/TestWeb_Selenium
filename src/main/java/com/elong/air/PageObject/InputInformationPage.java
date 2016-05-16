@@ -8,12 +8,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-import com.elong.air.base.BasePageObject;
+import com.elong.air.base.BasePage;
 import com.elong.air.bean.PassenagerInfoBean;
 import com.elong.air.exception.AirException;
 import com.elong.air.tools.WaitTools;
 
-public class InputInformationPage  extends BasePageObject{
+public class InputInformationPage  extends BasePage{
 
 	public InputInformationPage(WebDriver driver,String name) {
 		super(driver,name);

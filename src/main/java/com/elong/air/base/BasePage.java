@@ -23,12 +23,13 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.elong.air.tools.OptionFile;
 
-public class BasePageObject {
+public class BasePage {
 
 	public static final String NO_SUCH_FRAME = "no-such-frame";
 	protected String name = "";
@@ -46,7 +47,7 @@ public class BasePageObject {
 	 * @param driver
 	 * @param title
 	 */
-	public BasePageObject(WebDriver driver, final String title) {
+	public BasePage(WebDriver driver, final String title) {
 		log.debug("------使用BasePageObject(WebDriver driver)构造方法开始------");
 		
 		//final String pagetitle = this.getClass().getCanonicalName();
@@ -78,7 +79,7 @@ public class BasePageObject {
 	 * 
 	 * @param driver
 	 */
-	public BasePageObject(WebDriver driver) {
+	public BasePage(WebDriver driver) {
 		log.debug("------使用BasePageObject(WebDriver driver)构造方法开始------");
 		
 		final String pagetitle = this.getClass().getCanonicalName();
@@ -107,24 +108,24 @@ public class BasePageObject {
 				new AjaxElementLocatorFactory(driver, TIMEOUT), this);
 	}
 
-	public BasePageObject() {
+	public BasePage() {
 	}
 
 	/*-------------------------常用方法封装------------------------------------------------------------*/
-	public void click(WebElement element) {
+	protected void click(WebElement element) {
 		// switchFrame(element);
 		takeScreenShot(driver);
 		element.click();
 	}
 
-	public void setInputText(WebElement element, String text) {
+	protected void setInputText(WebElement element, String text) {
 		// switchFrame(element);
 		System.out.println("--------sendkeys:"+text);
 		element.clear();//暂时注销，登录密码框会报错
 		element.sendKeys(text);
 	}
 
-	public void setCheck(WebElement element) {
+	protected void setCheck(WebElement element) {
 		if (element.isSelected()) {
 			return;
 		} else {
@@ -133,7 +134,7 @@ public class BasePageObject {
 
 	}
 
-	public static void switchFrame(WebDriver driver, String frameName) {
+	protected static void switchFrame(WebDriver driver, String frameName) {
 		if (frameName == null) {
 			return;
 		}
@@ -162,7 +163,7 @@ public class BasePageObject {
 		}
 	}
 
-	public void switchWindow() {
+	protected void switchWindow() {
 		String currentWindow = driver.getWindowHandle();
 		Set<String> handles = driver.getWindowHandles();
 		for (String s : handles) {
@@ -175,7 +176,7 @@ public class BasePageObject {
 
 	}
 
-	public void switchWindow1() {
+	protected void switchWindow1() {
 		String currentWindow = driver.getWindowHandle();
 		Set<String> handles = driver.getWindowHandles();
 		Iterator<String> it = handles.iterator();
@@ -188,14 +189,14 @@ public class BasePageObject {
 	}
 
 	// 截图
-	public void takeScreenShot(WebDriver driver) {
+	protected void takeScreenShot(WebDriver driver) {
 		final String path = "D:/eclipseWorkSpace/AirGUIDemo/test-output/ScreenShot/";
 		try {
 			File file = ((TakesScreenshot) driver)
 					.getScreenshotAs(OutputType.FILE);
 			Random rd = new Random();
 			int tmp = Math.abs(rd.nextInt());
-			System.out.print(path + name + "jjjjjjjjjjjjjjjjjjjjjjjjj");
+			System.out.println(path + name + "jjjjjjjjjjjjjjjjjjjjjjjjj");
 			FileUtils.copyFile(file, new File(path + name, tmp
 					+ "screenshopt.png"));
 		} catch (IOException e) {
@@ -206,25 +207,25 @@ public class BasePageObject {
 	/**
 	 * 刷新页面
 	 */
-	public void refreshPage() {
+	protected  void refreshPage() {
 		driver.navigate().refresh();
 	}
 	/**
 	 * 浏览器前进
 	 */
-	public void forwardPage() {
+	protected void forwardPage() {
 		driver.navigate().forward();
 	}
 	/**
 	 * 浏览器后退
 	 */
-	public void backPage() {
+	protected void backPage() {
 		driver.navigate().back();
 	}
 	/**
 	 * 确认Alert弹框
 	 */
-	public void alertConfirm() {
+	protected void alertConfirm() {
 		Alert alert = driver.switchTo().alert();
 		try {
 			alert.accept();
@@ -235,7 +236,7 @@ public class BasePageObject {
 	/**
 	 * 关闭Alter弹框
 	 */
-	public void alertDismiss() {
+	protected void alertDismiss() {
 		Alert alert = driver.switchTo().alert();
 		try {
 			alert.dismiss();
@@ -247,7 +248,7 @@ public class BasePageObject {
 	 * 获得Alter弹框文本内容
 	 * @return
 	 */
-	public String getAlertText() {
+	protected String getAlertText() {
 		Alert alert = driver.switchTo().alert();
 		try {
 			return alert.getText();
@@ -259,7 +260,7 @@ public class BasePageObject {
 	 * 执行JavaScript
 	 * @param js
 	 */
-	public void executorJS(String js) {
+	protected void executorJS(String js) {
 		JavascriptExecutor jsexe = (JavascriptExecutor) driver;
 		jsexe.executeScript(js);
 
@@ -267,20 +268,20 @@ public class BasePageObject {
 	/**
 	 * 跳转至默认容器，即最顶层Frame
 	 */
-	public void toDefaultContent() {
+	protected void toDefaultContent() {
 		driver.switchTo().defaultContent();
 	}
 	/**
 	 * 跳转至父级(上一层)Frame
 	 */
-	public void toParentFrame() {
+	protected void toParentFrame() {
 		driver.switchTo().parentFrame();
 	}
 	/**
 	 * 跳转至Frame，可传参数类型：String、Integer、WebElment
 	 * @param ob
 	 */
-	public void toFrame(Object ob) {
+	protected void toFrame(Object ob) {
 		if(ob instanceof  String) {
 			String s = (String)ob;
 			driver.switchTo().frame(s);
@@ -299,7 +300,7 @@ public class BasePageObject {
 	 * @param element
 	 * @param text
 	 */
-	public void setRichTextBox(WebElement element, String text) {		
+	protected void setRichTextBox(WebElement element, String text) {		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].innerHTML = \"" + text + "\"", element);
 	}
@@ -309,7 +310,7 @@ public class BasePageObject {
 	 * @param text
 	 * @return
 	 */
-	public String getRichTextBox(WebElement element, String text) {	
+	protected String getRichTextBox(WebElement element) {	
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		String result = (String) js.executeScript(
 				"arguments[0].getInnerHTML()", element);
@@ -318,35 +319,35 @@ public class BasePageObject {
 	/**
 	 * 使用Actions来滑动滚动条到页面底部
 	 */
-	public void scrollToBottom() {
+	protected void scrollToBottom() {
 		Actions a = new Actions(driver);
 		a.sendKeys(Keys.END).perform();
 	}
 	/**
 	 * 使用Actions来滑动滚动条到页面顶部
 	 */
-	public void scrollToTop() {
+	protected void scrollToTop() {
 		Actions a = new Actions(driver);
         a.sendKeys(Keys.HOME).perform();
 	}
 	/**
 	 * 使用Actions来滑动滚动条到指定元素
 	 */
-	public void scrollToElement(WebElement element) {
+	protected void scrollToElement(WebElement element) {
 		Actions a = new Actions(driver);
 	    a.moveToElement(element).perform();
 	}
 	
-	public void selectByIndex(WebElement element, int index) {
+	protected void selectByIndex(WebElement element, int index) {
 		Select select = new Select(element);
 		select.selectByIndex(index);;
 	}
 	
-	public void selectByValue(WebElement element, String value) {
+	protected void selectByValue(WebElement element, String value) {
 		Select select = new Select(element);
 		select.selectByValue(value);
 	}
-	public void selectByVisibleText(WebElement element, String text) {
+	protected void selectByVisibleText(WebElement element, String text) {
 		Select select = new Select(element);
 		select.selectByVisibleText(text);
 	}
@@ -355,19 +356,19 @@ public class BasePageObject {
 	 * @param element
 	 * @return
 	 */
-	public Select getSelect(WebElement element) {		
+	protected Select getSelect(WebElement element) {		
 		Select select = new Select(element);		
 		return select;
 	}
 	
-	public void selectByIndex(Select select, int index) {
+	protected void selectByIndex(Select select, int index) {
 		select.selectByIndex(index);;
 	}
 	
-	public void selectByValue(Select select, String value) {
+	protected void selectByValue(Select select, String value) {
 		select.selectByValue(value);
 	}
-	public void selectByVisibleText(Select select, String text) {
+	protected void selectByVisibleText(Select select, String text) {
 		select.selectByVisibleText(text);
 	}
 	/**
@@ -376,9 +377,9 @@ public class BasePageObject {
 	 * @param time
 	 * @return
 	 */
-	public boolean isElementPresent(final By by, int time) {
+	protected boolean isElementPresent(final By by) {
         boolean isPresent = false;
-        WebDriverWait wait = new WebDriverWait(driver, time);
+        WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
         isPresent = wait.until(new ExpectedCondition<WebElement>() {
             @Override
             public WebElement apply(WebDriver dr) {
@@ -387,11 +388,55 @@ public class BasePageObject {
         }).isDisplayed();
         return isPresent;
 	}
+	
+	protected WebElement findElement(final By by) {
+        WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
+        WebElement element = wait.until(new ExpectedCondition<WebElement>() {
+            @Override
+            public WebElement apply(WebDriver dr) {
+                return dr.findElement(by);
+            }
+        });
+        return element;
+	}
+	
+	protected List<WebElement> findElements(final By by) {
+        WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
+        List<WebElement> elements = wait.until(new ExpectedCondition<List<WebElement>>() {
+            @Override
+            public List<WebElement> apply(WebDriver dr) {
+                return dr.findElements(by);
+            }
+        });
+        return elements;
+	}
+	
+	protected WebElement findElement(final WebElement webelement, final By by) {
+		WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
+        WebElement element = wait.until(new ExpectedCondition<WebElement>() {
+            @Override
+            public WebElement apply(WebDriver dr) {
+                return webelement.findElement(by);
+            }
+        });
+        return element;
+	}
+	
+	protected List<WebElement> findElements(final WebElement webelement, final By by) {
+		WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
+		List<WebElement> elements = wait.until(new ExpectedCondition<List<WebElement>>() {
+            @Override
+            public List<WebElement> apply(WebDriver dr) {
+                return webelement.findElements(by);
+            }
+        });
+        return elements;
+	}
 	/**
 	 * 切换浏览器标签至新打开窗口，当前浏览器打开多个(>2)浏览器标签时
 	 * @param set
 	 */
-	public void switchToWindow(Set<String> set) {
+	protected void switchToWindow(Set<String> set) {
 	   Set<String> setCur = driver.getWindowHandles();
 	   if(setCur.containsAll(set)) {
 		   setCur.removeAll(set);
@@ -403,7 +448,7 @@ public class BasePageObject {
 	 * 切换浏览器标签至新打开窗口
 	 * @param set
 	 */
-	public void switchToWindow() {
+	protected void switchToWindow() {
 	   String curW = driver.getWindowHandle();
 	   Set<String> set = driver.getWindowHandles();
 	   for(String s:set) {
@@ -412,7 +457,20 @@ public class BasePageObject {
 		   }
 	   }
 	}
-	public void testriver() {
+	
+	protected boolean isAlertPresent() {
+		boolean flag = false;
+		try {
+			ExpectedConditions.alertIsPresent().apply(driver);
+			flag = true;
+		} catch (Exception NofindAlert) {
+			// TODO: handle exception
+			flag = false;
+			throw NofindAlert;
+		}
+		return flag;
+	}
+	protected void testriver() {
 	  
 	}
 	/*----------------------------qiaojiafei----------------------------*/

@@ -8,11 +8,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-import com.elong.air.base.BasePageObject;
+import com.elong.air.base.BasePage;
 import com.elong.air.bean.PassenagerInfoBean;
 import com.elong.air.tools.WaitTools;
 
-public class CopyOfInputInformationPage  extends BasePageObject{
+public class CopyOfInputInformationPage  extends BasePage{
 
 	public CopyOfInputInformationPage(WebDriver driver) {
 		super(driver);

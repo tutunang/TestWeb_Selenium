@@ -9,7 +9,7 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-import com.elong.air.base.BasePageObject;
+import com.elong.air.base.BasePage;
 
 public class ListPraseXml {
 	
