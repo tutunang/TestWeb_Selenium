@@ -272,5 +272,7 @@ public class DriverFactory {
 		}
 		return driver;
 	}
-
+public static void main(String[] args) {
+	setUpDriver();
+}
 }

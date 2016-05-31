@@ -24,7 +24,7 @@ public void TestField(){
 	DataProvider dp=new DataProvider();
 	SearchInfoBean bean=(SearchInfoBean)dp.getBean(this.getClass().getSimpleName());
 	//在搜索页面设计搜索内容
-	SearchPage sp=new SearchPage(driver,this.getClass().getSimpleName());
+	SearchPage sp=new SearchPage(driver);
     sp.searchFlight(bean);
     //验证
     Assert.assertEquals(sp.getErrorMsg(), "出发城市与到达城市不可相同，请重新输入！");

@@ -25,9 +25,9 @@ public class SearchPage extends BasePage {
 		super(driver);
 	}
 
-	public SearchPage(WebDriver driver, String title) {
-		super(driver, title);
-	}
+//	public SearchPage(WebDriver driver, String title) {
+//		super(driver);
+//	}
 
 	@FindBy(xpath = "//input[@class='radio' and @method='oneway']")
 	public WebElement oneWayRadio;

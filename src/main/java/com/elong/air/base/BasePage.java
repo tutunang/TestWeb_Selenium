@@ -110,6 +110,9 @@ public class BasePage {
 
 	public BasePage() {
 	}
+	
+	
+	
 
 	/*-------------------------常用方法封装------------------------------------------------------------*/
 	protected void click(WebElement element) {

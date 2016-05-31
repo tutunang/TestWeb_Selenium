@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Apr 28 10:19:57 CST 2016</td>
+<td>Started on:</td><td>Tue May 31 15:56:26 CST 2016</td>
 </tr>
-<tr><td>Total time:</td><td>0 seconds (569 ms)</td>
+<tr><td>Total time:</td><td>320 seconds (320264 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,13 +75,18 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.elong.air.tests.TestLogin.testlogin()'><b>testlogin</b><br>Test class: com.elong.air.tests.TestLogin<br>Parameters: 3</td>
-<td><div><pre>java.lang.NumberFormatException: For input string: &quot;1,2&quot;
-	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
-	at java.lang.Integer.parseInt(Integer.java:492)
-	at java.lang.Integer.parseInt(Integer.java:527)
-	at com.elong.air.dataProvider.ITestData.getTestDataConvertToBean(ITestData.java:64)
-	at com.elong.air.tests.TestLogin.testlogin(TestLogin.java:18)
+<td title='com.elong.air.tests.TestCreateSingleOrder.createSingleOrder()'><b>createSingleOrder</b><br>Test class: com.elong.air.tests.TestCreateSingleOrder<br>Parameters: 5<br/>
+<a href="#Output-493118620" onClick='toggleBox("Output-493118620", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-493118620" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-493118620">
+Failed Screen Shot Path：D:\eclipseWorkSpace\Test_GUI_AIR\ExceptionScreenshotImg\com.elong.air.tests.TestCreateSingleOrder\com.elong.air.tests.TestCreateSingleOrder-createSingleOrder-2016-05-31-16-01-45.png<br/>
+</div>
+</td>
+<td><div><pre>java.lang.IllegalStateException: 当前不是预期页面，当前页面title是：【艺龙机票】机票查询,特价机票,打折飞机票-艺龙旅行网eLong.com
+	at com.elong.air.base.BasePage.&lt;init&gt;(BasePage.java:68)
+	at com.elong.air.PageObject.SearchPage.&lt;init&gt;(SearchPage.java:29)
+	at com.elong.air.tests.TestCreateSingleOrder.createSingleOrder(TestCreateSingleOrder.java:37)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -106,13 +111,11 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
-</pre></div><a href='#' onClick='toggleBox("stack-trace2008879874", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2008879874'><pre>java.lang.NumberFormatException: For input string: &quot;1,2&quot;
-	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
-	at java.lang.Integer.parseInt(Integer.java:492)
-	at java.lang.Integer.parseInt(Integer.java:527)
-	at com.elong.air.dataProvider.ITestData.getTestDataConvertToBean(ITestData.java:64)
-	at com.elong.air.tests.TestLogin.testlogin(TestLogin.java:18)
+</pre></div><a href='#' onClick='toggleBox("stack-trace493118620", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace493118620'><pre>java.lang.IllegalStateException: 当前不是预期页面，当前页面title是：【艺龙机票】机票查询,特价机票,打折飞机票-艺龙旅行网eLong.com
+	at com.elong.air.base.BasePage.&lt;init&gt;(BasePage.java:68)
+	at com.elong.air.PageObject.SearchPage.&lt;init&gt;(SearchPage.java:29)
+	at com.elong.air.tests.TestCreateSingleOrder.createSingleOrder(TestCreateSingleOrder.java:37)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -138,21 +141,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
 </pre></div></td>
-<td>0</td>
-<td>com.elong.air.tests.TestLogin@6fbc18ca</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='com.elong.air.tests.TestLogin.testlogin()'><b>testlogin</b><br>Test class: com.elong.air.tests.TestLogin<br>Parameters: 5</td>
-<td></td>
-<td>0</td>
-<td>com.elong.air.tests.TestLogin@6fbc18ca</td></tr>
+<td>151</td>
+<td>com.elong.air.tests.TestCreateSingleOrder@3beff9ad</td></tr>
 </table><p>
 </body>
 </html>

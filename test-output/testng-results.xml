@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="2" passed="1">
+<testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
+    <line>
+      <![CDATA[Failed Screen Shot Path：D:\eclipseWorkSpace\Test_GUI_AIR\ExceptionScreenshotImg\com.elong.air.tests.TestCreateSingleOrder\com.elong.air.tests.TestCreateSingleOrder-createSingleOrder-2016-05-31-16-01-45.png]]>
+    </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="569" started-at="2016-04-28T02:19:57Z" finished-at="2016-04-28T02:19:58Z">
+  <suite name="Default suite" duration-ms="320264" started-at="2016-05-31T07:56:26Z" finished-at="2016-05-31T08:01:46Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="569" started-at="2016-04-28T02:19:57Z" finished-at="2016-04-28T02:19:58Z">
-      <class name="com.elong.air.tests.TestLogin">
-        <test-method status="FAIL" signature="testlogin(java.lang.Object)[pri:0, instance:com.elong.air.tests.TestLogin@6fbc18ca]" name="testlogin" duration-ms="168" started-at="2016-04-28T10:19:58Z" data-provider="testdp" finished-at="2016-04-28T10:19:58Z">
+    <test name="Default test" duration-ms="320264" started-at="2016-05-31T07:56:26Z" finished-at="2016-05-31T08:01:46Z">
+      <class name="com.elong.air.tests.TestCreateSingleOrder">
+        <test-method status="PASS" signature="befclass()[pri:0, instance:com.elong.air.tests.TestCreateSingleOrder@3beff9ad]" name="befclass" is-config="true" duration-ms="8313" started-at="2016-05-31T15:56:26Z" finished-at="2016-05-31T15:56:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- befclass -->
+        <test-method status="FAIL" signature="createSingleOrder(java.lang.Object)[pri:0, instance:com.elong.air.tests.TestCreateSingleOrder@3beff9ad]" name="createSingleOrder" duration-ms="151116" started-at="2016-05-31T15:59:14Z" data-provider="testdp" finished-at="2016-05-31T16:01:45Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[3]]>
+                <![CDATA[5]]>
               </value>
             </param>
           </params>
-          <exception class="java.lang.NumberFormatException">
+          <exception class="java.lang.IllegalStateException">
             <message>
-              <![CDATA[For input string: "1,2"]]>
+              <![CDATA[当前不是预期页面，当前页面title是：【艺龙机票】机票查询,特价机票,打折飞机票-艺龙旅行网eLong.com]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NumberFormatException: For input string: "1,2"
-	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
-	at java.lang.Integer.parseInt(Integer.java:492)
-	at java.lang.Integer.parseInt(Integer.java:527)
-	at com.elong.air.dataProvider.ITestData.getTestDataConvertToBean(ITestData.java:64)
-	at com.elong.air.tests.TestLogin.testlogin(TestLogin.java:18)
+              <![CDATA[java.lang.IllegalStateException: 当前不是预期页面，当前页面title是：【艺龙机票】机票查询,特价机票,打折飞机票-艺龙旅行网eLong.com
+	at com.elong.air.base.BasePage.<init>(BasePage.java:68)
+	at com.elong.air.PageObject.SearchPage.<init>(SearchPage.java:29)
+	at com.elong.air.tests.TestCreateSingleOrder.createSingleOrder(TestCreateSingleOrder.java:37)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -52,22 +57,18 @@
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NumberFormatException -->
+          </exception> <!-- java.lang.IllegalStateException -->
+          <reporter-output>
+            <line>
+              <![CDATA[Failed Screen Shot Path：D:\eclipseWorkSpace\Test_GUI_AIR\ExceptionScreenshotImg\com.elong.air.tests.TestCreateSingleOrder\com.elong.air.tests.TestCreateSingleOrder-createSingleOrder-2016-05-31-16-01-45.png]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- createSingleOrder -->
+        <test-method status="PASS" signature="aftclass()[pri:0, instance:com.elong.air.tests.TestCreateSingleOrder@3beff9ad]" name="aftclass" is-config="true" duration-ms="781" started-at="2016-05-31T16:01:46Z" finished-at="2016-05-31T16:01:46Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testlogin -->
-        <test-method status="PASS" signature="testlogin(java.lang.Object)[pri:0, instance:com.elong.air.tests.TestLogin@6fbc18ca]" name="testlogin" duration-ms="75" started-at="2016-04-28T10:19:58Z" data-provider="testdp" finished-at="2016-04-28T10:19:58Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[5]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testlogin -->
-      </class> <!-- com.elong.air.tests.TestLogin -->
+        </test-method> <!-- aftclass -->
+      </class> <!-- com.elong.air.tests.TestCreateSingleOrder -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

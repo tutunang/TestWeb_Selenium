@@ -33,10 +33,10 @@ public class BaseProvider {
 		Logger log = Logger.getLogger(BaseProvider.class);
 		
 		// 读取测试用例的级别
-		int case_count = 0;
-		int case_start = 4;
+	//	int case_count = 0;
+	//	int case_start = 4;
 		int sheet = Integer.parseInt(testsheet);
-		Priority p = null;
+	//	Priority p = null;
 		final String P_FROM_PROPERTY = OptionFile.readProperties(
 				"./src/main/resources/config.properties", "priority");
 		System.out.println("------执行数据驱动，执行的用例优先级是："+P_FROM_PROPERTY+"，执行的excel-sheet页是"+sheet+"------");

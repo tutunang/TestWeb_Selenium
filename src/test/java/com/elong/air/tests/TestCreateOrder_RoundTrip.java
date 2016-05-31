@@ -24,7 +24,7 @@ public class TestCreateOrder_RoundTrip extends ConfigDriver{
 		System.out.println(this.getClass().getSimpleName());
 		DataProvider dp=new DataProvider();
 		SearchInfoBean bean=(SearchInfoBean)dp.getBean(this.getClass().getSimpleName());
-		SearchPage sp=new SearchPage(driver,s);
+		SearchPage sp=new SearchPage(driver);
 		AirListsPage ap=sp.searchFlight(bean);
 		AirListsRoundTripPage artp=ap.getFirstBizopt_round();
 		InputInformationPage ip=artp.getFirstDiamond();

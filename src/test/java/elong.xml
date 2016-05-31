@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Suite" parallel="true"  Configfailurepolicy="skip">
+<suite name="Test_GUI_AIR" parallel="true"  Configfailurepolicy="skip">
 <listeners>
 <listener class-name="org.uncommons.reportng.HTMLReporter" />
 <listener class-name="com.elong.air.base.BaseScreenShortListener" />
 </listeners>
- <!--  
-<test name="TestCreateOrder">
+ 
+<test name="OW">
   <classes>
-      <class name="com.elong.air.tests.TestCreateOrder"/>
-  </classes>
-</test>
--->
-<test name="TestCreateSingleOrder">
-  <classes>
-      <class name="com.elong.air.tests.TestLogin"/>
+      <class name="com.elong.air.tests.TestCreateSingleOrder"/>
   </classes>
 </test> 
-<!-- 
-<test name="TestSearchField">
+
+<test name="ROUND">
   <classes>
-      <class name="com.elong.air.tests.TestSearchField"/>
+      <class name="com.elong.air.tests.TestCreateSingleOrder"/>
   </classes>
- 
-</test>  -->
+</test> 
 </suite> 
 <!-- 指定测试方法 
 <methods>

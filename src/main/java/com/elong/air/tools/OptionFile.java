@@ -499,16 +499,18 @@ public class OptionFile {
 				sheet = wb.getSheetAt(index - 1);
 			} else if (path.endsWith(".xlsx")) {
 				wb = new XSSFWorkbook(in);
+				//from 0 start!0,1.2....
 				sheet = wb.getSheetAt(index - 1);
 			}
 			// HSSFWorkbook wb = new HSSFWorkbook(new POIFSFileSystem(in));
 			// Sheet sheet = wb.getSheetAt(index);
-			Row header = sheet.getRow(0);
+		//	Row header = sheet.getRow(0);
 			rowcount = sheet.getLastRowNum() + 1;
 
 			if (p.equals("ALL") || p.equals("P1") || p.equals("P2")
 					|| p.equals("P3")) {
 				for (int i = rowstart; i <= rowcount; i++) {
+					//2 为excel第二列（级别）
 					value = getExcel(path, index, i, 2);
 					// 得到指定用例优先级的的casenum，存入list
 					if (p.equals("ALL")) {

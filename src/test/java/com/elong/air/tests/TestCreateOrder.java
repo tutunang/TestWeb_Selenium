@@ -38,7 +38,7 @@ public void createSingleOrder() throws Exception{
 	DataProvider dp=new DataProvider();
 	SearchInfoBean bean=(SearchInfoBean)dp.getBean(this.getClass().getSimpleName());
 
-	SearchPage sp=new SearchPage(driver,s);
+	SearchPage sp=new SearchPage(driver);
 	AirListsPage ap=sp.searchFlight(bean);
 	InputInformationPage ip=ap.getFirstBizopt();
 	List<PassenagerInfoBean> passenagerInfo = bean.getPassenagerInfo();
