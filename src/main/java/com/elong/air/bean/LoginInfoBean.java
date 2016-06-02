@@ -15,7 +15,7 @@ public class LoginInfoBean extends BaseBean{
 		super(sheet, caseNum);
 		initTestData(map);
 	}
-	@Override
+
 	public void initTestData(Map<String, String> map) {
 		// TODO Auto-generated method stub
 		setUsername(map.get("用户名"));

@@ -29,5 +29,5 @@ public abstract class BaseBean {
 	 * @return void
 	 * @throws
 	 */
-	public abstract void initTestData(Map<String, String> map);
+//	public abstract void initTestData(Map<String, String> map);
 }

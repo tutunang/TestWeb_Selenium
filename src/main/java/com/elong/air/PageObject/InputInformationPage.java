@@ -15,13 +15,9 @@ import com.elong.air.tools.WaitTools;
 
 public class InputInformationPage  extends BasePage{
 
-	public InputInformationPage(WebDriver driver,String name) {
-		super(driver,name);
-		super.name=name;
-		//WaitTools.waitToElement(phoneInputTextField, driver);
+	public InputInformationPage(WebDriver driver) {
+		super(driver);		
 	}
-	
-public String checkOrder_submit="#submit";
 
 @FindBy(css="li[method='Passenger']> #txtPassengerName" )
 public List<WebElement> passengerNameInputTextField;
@@ -57,14 +53,17 @@ public CheckOrderPage putPassInfoBean (List<PassenagerInfoBean>s) throws AirExce
 		PassenagerInfoBean bean =s.get(i);
 		Select select=new Select(cardType.get(i));
 		select.selectByIndex(bean.getCardType());
+		if(bean.getCardType()!=0){
+			this.setInputText(birthTextField.get(i), bean.getBirthDate());
+		}
+		
 		this.setInputText(passengerNameInputTextField.get(i), bean.getPassengerName());
-		this.setInputText(birthTextField.get(i), bean.getBirthDate());
 		this.setInputText(passengerIdInputTextField.get(i), bean.getPassenagerId());
 		this.setInputText(phoneInputTextField, bean.getPhoneNum());
 			summbitOrder();
 		
 	}
-	return new CheckOrderPage(driver,checkOrder_submit);
+	return new CheckOrderPage(driver);
 }
 
 public void addPassenger(int i){

@@ -45,7 +45,7 @@ public class AirListsRoundTripPage extends BasePage{
 				WebElement book = e.findElement(By.xpath("../..//td[7]/div/input"));
 				click(book);
 				
-				return new InputInformationPage(driver,name);
+				return new InputInformationPage(driver);
 			}
 
 		}
@@ -91,7 +91,7 @@ public class AirListsRoundTripPage extends BasePage{
 		}
 		click(bookButton);
 		
-		return new InputInformationPage(driver,name);
+		return new InputInformationPage(driver);
 
 	}
 	

@@ -20,19 +20,11 @@ import com.elong.air.dataProvider.BaseProvider;
 public class TestCreateSingleOrder extends BaseTestClass{
 	HomePage hp;
 	public int sheet = 2;	
-	
-//	@BeforeMethod
-//	public void setUpHomePage() throws IOException{
-//		ConfigDriver cfd = new ConfigDriver();
-//		driver = cfd.setUpDriver();
-//		
-//	}
-	
+
 	@Test(dataProvider="testdp",dataProviderClass = BaseProvider.class)
 	public void createSingleOrder(Object caseNum) throws Exception{
 		int rowNum = (int)caseNum;
 		System.out.println("这里是rowNum"+rowNum);
-//		System.out.println(5/0);
 		SearchInfoBean cpsearch = new SearchInfoBean(sheet, rowNum);
 		SearchPage sp=new SearchPage(driver);
 		AirListsPage ap = sp.searchFlight(cpsearch);
@@ -44,7 +36,7 @@ public class TestCreateSingleOrder extends BaseTestClass{
 		PaymentMethodPage pmp=	cop.submitOrder();
 		
 		PaymentPage pp=	pmp.chooseCreditCard();
-		pp.inputBankInformation();
+		//pp.inputBankInformation();
 		
 		
 	}

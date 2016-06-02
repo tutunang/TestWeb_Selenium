@@ -7,13 +7,11 @@ import org.openqa.selenium.support.FindBy;
 import com.elong.air.base.BasePage;
 
 public class PaymentMethodPage extends BasePage{
-public String name="";
-	public PaymentMethodPage(WebDriver driver,String name) {
+	public PaymentMethodPage(WebDriver driver) {
 		super(driver);
-		super.name=name;
 	}
 
-@FindBy(xpath="//ul[@id='tabMenu']/li[1]")
+@FindBy(xpath="//ul[@id='tabMenu']/li[2]")
 public WebElement creditCard;
 
 @FindBy(css=".card_sel.clx input[id='41']")

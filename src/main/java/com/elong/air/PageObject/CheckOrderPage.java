@@ -11,9 +11,8 @@ import com.elong.air.exception.AirException;
 
 public class CheckOrderPage extends BasePage{
 
-	public CheckOrderPage(WebDriver driver,String name) {
+	public CheckOrderPage(WebDriver driver) {
 		super(driver);
-		super.name=name;
 	}
 @FindBy(css="#submit")
 public WebElement sumbitButton;
@@ -38,7 +37,7 @@ public PaymentMethodPage submitOrder() throws AirException {
 		System.out.println("handle" + driver.getWindowHandle());
 		System.out.println("url" + driver.getCurrentUrl());
 		System.out.println("title" + driver.getTitle());
-		return new PaymentMethodPage(driver,paymentPage_submit_success);
+		return new PaymentMethodPage(driver);
 	}
 	return null;
 	

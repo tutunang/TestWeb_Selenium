@@ -24,7 +24,7 @@ public static String flightInfo="//div[@class='list_seo clx']";
 		String z=x.toString();
 		if (z.equals("MID")) {
 			System.out.println("mid");
-			return (T) new AirListsPage(driver, bookingButton);
+			return (T) new AirListsPage(driver);
 			
 		}
 		if (z.equals("TOP")) {

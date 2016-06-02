@@ -10,6 +10,8 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -264,7 +266,12 @@ public class DriverFactory {
 			key = "webdriver.firefox.bin";
 			value = driverpath;
 			System.setProperty(key, value);
-			driver = new FirefoxDriver();
+//			  ProfilesIni allProfiles = new ProfilesIni();
+//		       FirefoxProfile firefoxProfile = allProfiles.getProfile("default");
+//			driver = new FirefoxDriver();
+			 ProfilesIni allProfiles = new ProfilesIni();
+		       FirefoxProfile firefoxProfile = allProfiles.getProfile("default");
+		       driver = new FirefoxDriver(firefoxProfile);
 			driver = registerEvent(driver);
 			initOption(driver, TIMEOUT);
 

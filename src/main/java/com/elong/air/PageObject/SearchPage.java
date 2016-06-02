@@ -2,6 +2,7 @@ package com.elong.air.PageObject;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -52,10 +53,10 @@ public class SearchPage extends BasePage {
 	@FindBy(xpath = "//div[@id='m_contentend']//div[@class='w']")
 	public WebElement errorMsg;
 
-	@FindBy(css = ".com_results li")
+	@FindBy(css =".com_results li")
 	public WebElement key;
 
-	@FindBy(xpath = "//div[@id='sugContainer']")
+	@FindBy(xpath ="//div[@id='sugContainer']//li")
 	public List<WebElement> listOptions;
 
 	@FindBy(css = ".a_on")
@@ -69,31 +70,21 @@ public class SearchPage extends BasePage {
 		}
 
 		System.out.println("ddd" + bean.getStartCity());
-		if (bean.getStartCity() != null && !bean.getStartCity().equals("")) {
+		if(StringUtils.isNotEmpty(bean.getStartCity()))
+		 {
 			System.out.println(bean.getStartCity());
 			this.setInputText(startCity, bean.getStartCity());
-			// TakeScreenShot.takeScreenShot(driver);
 			getOptionFromLists(bean.getStartCity());
-			// click(key);
+		
 
 		}
-		if (bean.getEndCity() != null && !bean.getEndCity().equals("")) {
+		if (StringUtils.isNotEmpty(bean.getEndCity())) {
 			System.out.println(bean.getEndCity());
 			this.setInputText(endCity, bean.getEndCity());
-			// driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-			// SelectUtils s=new SelectUtils();
-			// s.selectByText(listOption, bean.getEndCity());
-			// click(key1);
-			try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			getOptionFromLists(bean.getEndCity());
 		}
 
-		if (bean.getStartDate() != null && !bean.getStartDate().equals("")) {
+		if (StringUtils.isNotEmpty(bean.getStartDate())) {
 			// click(key1);
 			this.setInputText(startDate, bean.getStartDate());
 			click(key1);
@@ -101,8 +92,7 @@ public class SearchPage extends BasePage {
 		if (bean.getRoundWay() == true) {
 			this.setCheck(roundRadio);
 
-			if (bean.getReturnDate() != null
-					&& !bean.getReturnDate().equals("")) {
+			if (StringUtils.isNotEmpty(bean.getReturnDate())) {
 				// this.setInputText(returnDate, bean.getReturnDate());
 				returnDate.clear();
 				click(key1);
@@ -134,7 +124,9 @@ public class SearchPage extends BasePage {
 	}
 
 	public void getOptionFromLists(String target) {
+		System.out.println(target+"targets");
 		for (WebElement e : listOptions) {
+			System.out.println(e.getText().trim()+"eeeeeee");
 			if (e.getText().trim().contains(target)) {
 				e.click();
 			} else {

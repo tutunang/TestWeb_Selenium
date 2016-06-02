@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
@@ -59,9 +60,12 @@ public class BasePage {
 				@Override
 				public Boolean apply(WebDriver arg0) {
 					// TODO Auto-generated method stub
-					String acttitle = arg0.getTitle();
-					log.debug("------预期页面title是："+title+"，实际页面title是：acttitle");
-					return acttitle.equals(title);
+					//String acttitle = arg0.getTitle();
+				boolean falg=arg0.findElement(By.xpath(title)).isDisplayed();
+		//arg0.manage().timeouts().implicitlyWait(200, TimeUnit.SECONDS)
+//					log.debug("------预期页面title是："+title+"，实际页面title是：acttitle");
+					return falg;
+					
 				}
 			});
 		} catch (TimeoutException te) {
@@ -75,33 +79,30 @@ public class BasePage {
 	}
 
 	/***
-	 * 构造方法时，判断页面title是否正确,使用pagetitle.properties读取的title判断页面title
+	 * 构造方法时，从配置文件中取得界面唯一的logo的xpath定位
 	 * 
 	 * @param driver
+	 * @update wenjing
 	 */
 	public BasePage(WebDriver driver) {
 		log.debug("------使用BasePageObject(WebDriver driver)构造方法开始------");
 		
 		final String pagetitle = this.getClass().getCanonicalName();
-		final String title = OptionFile.readProperties(
+		final String logo = OptionFile.readProperties(
 				"./src/main/resources/pagetitle.properties", pagetitle);
 		this.driver = driver;
-		System.out.println("当前page类是：" + pagetitle + " ;取到的title是：" + title);
+		System.out.println("当前page类是：" + pagetitle + " ;取到的title是：" + logo);
 		
 		WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
 		try {
 			wait.until(new ExpectedCondition<Boolean>() {
 				@Override
 				public Boolean apply(WebDriver arg0) {
-					// TODO Auto-generated method stub
-					String acttitle = arg0.getTitle();
-					log.debug("------取到的预期页面title是："+title+"，实际页面title是：acttitle");
-					return acttitle.equals(title);
+					return arg0.findElement(By.xpath(logo)).isDisplayed();
 				}
 			});
 		} catch (TimeoutException te) {
-			throw new IllegalStateException("当前不是预期页面，当前页面title是："
-					+ driver.getTitle());
+			throw new IllegalStateException("页面未加载完毕或者找不到元素");
 		}
 
 		PageFactory.initElements(

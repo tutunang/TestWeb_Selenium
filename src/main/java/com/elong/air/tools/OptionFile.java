@@ -546,7 +546,7 @@ public class OptionFile {
 					 */
 				}
 			} else {
-				System.out.println("��excel��ȡ���ʱ��������������ȼ�����" + p);
+				System.out.println("excel中没有找到该级别" + p);
 			}
 			in.close();
 		} catch (Exception e) {

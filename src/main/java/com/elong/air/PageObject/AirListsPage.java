@@ -12,9 +12,8 @@ import com.elong.air.exception.AirException;
 import com.elong.air.tools.TakeScreenShot;
 
 public class AirListsPage extends BasePage{
-	public AirListsPage(WebDriver driver,String name) {
-		super(driver,name);
-		super.name=name;
+	public AirListsPage(WebDriver driver) {
+		super(driver);
 
 	}
 	public String inputInformation_Sub_button="//input[@id='btnSaveOrder']";
@@ -46,7 +45,7 @@ public class AirListsPage extends BasePage{
 				//driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS); 
 				TakeScreenShot.takeScreenShot(driver);
 				click(book);
-				return new InputInformationPage(driver,inputInformation_Sub_button);
+				return new InputInformationPage(driver);
 			}
 
 		}
@@ -92,7 +91,7 @@ public class AirListsPage extends BasePage{
 		}
 		click(bookButton);
 		
-		return new InputInformationPage(driver,inputInformation_Sub_button);
+		return new InputInformationPage(driver);
 
 	}
 	
