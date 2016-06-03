@@ -3,6 +3,9 @@ package com.elong.air.PageObject;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -56,13 +59,13 @@ public class SearchPage extends BasePage {
 	@FindBy(css =".com_results li")
 	public WebElement key;
 
-	@FindBy(xpath ="//div[@id='sugContainer']//li")
-	public List<WebElement> listOptions;
+	@FindBy(xpath ="//div[@id='sugContainer']")
+	public WebElement listOptions;
 
 	@FindBy(css = ".a_on")
 	public WebElement key1;
 
-	public AirListsPage searchFlight(SearchInfoBean bean) {
+	public AirListsPage searchFlight(SearchInfoBean bean) throws InterruptedException {
 		System.out.println(bean.getOneWay() + "in Searchpage");
 		if (bean.getOneWay() == true) {
 
@@ -74,14 +77,24 @@ public class SearchPage extends BasePage {
 		 {
 			System.out.println(bean.getStartCity());
 			this.setInputText(startCity, bean.getStartCity());
-			getOptionFromLists(bean.getStartCity());
-		
+			String str = "document.getElementById(\"Round_DepartCity\").citythreesign= '"+bean.getStartCity()+"'";
+			
+//			String js="$('#sugContent').find('li:first').click()";
+			((JavascriptExecutor)driver).executeScript(str);
+			
+			// ((JavascriptExecutor)driver).executeScript();
+			//getOptionFromLists(bean.getStartCity());
+			//startCity.sendKeys(Keys.values());
 
 		}
 		if (StringUtils.isNotEmpty(bean.getEndCity())) {
 			System.out.println(bean.getEndCity());
 			this.setInputText(endCity, bean.getEndCity());
-			getOptionFromLists(bean.getEndCity());
+			String str = "document.getElementById(\"Round_ArriveCity\").citythreesign= '"+bean.getEndCity()+"'";
+		//	String js="$('#sugContent').find('li:first').click()";
+			((JavascriptExecutor)driver).executeScript(str);
+			//Thread.sleep(5000);
+			//getOptionFromLists(bean.getEndCity());
 		}
 
 		if (StringUtils.isNotEmpty(bean.getStartDate())) {
@@ -125,19 +138,26 @@ public class SearchPage extends BasePage {
 
 	public void getOptionFromLists(String target) {
 		System.out.println(target+"targets");
-		for (WebElement e : listOptions) {
-			System.out.println(e.getText().trim()+"eeeeeee");
+	//	List<WebElement> li=listOptions.findElements(By.xpath("//li[@title='"+target+"']"));
+		List<WebElement> li=this.findElements(By.xpath("//div[@id='sugContainer']//li[@title='"+target+"']"));
+		System.out.println("------------------------------------size:"+li.size());
+		if(li.size()>0){
+		for (WebElement e : li) {
+		//	System.out.println("<<<<<"+e.getText());
 			if (e.getText().trim().contains(target)) {
-				e.click();
+			click(e);
+				break;
 			} else {
-
 				try {
 					throw new AirException("Can't find the optionList");
 				} catch (AirException e1) {
 					e1.printStackTrace();
 				}
 			}
-		}
+		}}
 
 	}
+	
+
+	
 }

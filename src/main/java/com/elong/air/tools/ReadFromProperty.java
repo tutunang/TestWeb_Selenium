@@ -20,7 +20,6 @@ public class ReadFromProperty {
 //		String zString=zProperties.getProperty("bankAccountName");
 //	    String xmString = new String(zString.toString().getBytes("UTF-8"));
 //		System.out.println(xmString);
-		
 		Properties properties = new Properties();   
 		InputStream inputStream = this.getClass().getResourceAsStream("/bank.properties");   
 		BufferedReader bf = new BufferedReader(new InputStreamReader(inputStream));   
@@ -33,6 +32,7 @@ public class ReadFromProperty {
 	    String month=	properties.getProperty("month");
 	    String year=	properties.getProperty("year");
 	    String selCertificateType=	properties.getProperty("selCertificateType");
+	    String code=properties.getProperty("code");
 		System.out.println(bankAccountName+bankAccountNum+cardId);  
 		Map<String,String> map=new HashMap();
 	    map.put("AccountName", bankAccountName);
@@ -40,8 +40,9 @@ public class ReadFromProperty {
 	    map.put("cardId", cardId);
 	    map.put("month", month);
 	    map.put("year", year);
+	    map.put("code", code);
 	    map.put("selCertificateType", selCertificateType);
-	    System.out.println(bankAccountName+"@@"+bankAccountNum+"@@"+cardId+"@@"+month+"@@"+year+"@@"+selCertificateType);
+	    System.out.println(bankAccountName+"@@"+bankAccountNum+"@@"+cardId+"@@"+month+"@@"+year+"@@"+selCertificateType+"###"+code);
 		return map;
 
 	}

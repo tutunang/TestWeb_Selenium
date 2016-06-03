@@ -1,10 +1,7 @@
 package com.elong.air.tools;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-
-import com.elong.air.base.BasePage;
 
 public class SelectUtils{
 //extends AbstractPageObject{

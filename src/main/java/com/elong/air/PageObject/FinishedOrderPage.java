@@ -11,7 +11,6 @@ public class FinishedOrderPage extends BasePage{
 
 	public FinishedOrderPage(WebDriver driver) {
 		super(driver);
-		// TODO Auto-generated constructor stub
 	}
 @FindBy(css=".btn_view.ml10")
 public WebElement viewOrderButton;
