@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="15920" started-at="2016-06-03T10:50:40Z" finished-at="2016-06-03T10:50:56Z">
+  <suite name="Default suite" duration-ms="15683" started-at="2016-06-06T01:38:22Z" finished-at="2016-06-06T01:38:38Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="15920" started-at="2016-06-03T10:50:40Z" finished-at="2016-06-03T10:50:56Z">
+    <test name="Default test" duration-ms="15683" started-at="2016-06-06T01:38:22Z" finished-at="2016-06-06T01:38:38Z">
       <class name="com.elong.air.tests.TestSearchField">
-        <test-method status="PASS" signature="befclass()[pri:0, instance:com.elong.air.tests.TestSearchField@64959a7a]" name="befclass" is-config="true" duration-ms="6540" started-at="2016-06-03T18:50:40Z" finished-at="2016-06-03T18:50:47Z">
+        <test-method status="PASS" signature="befclass()[pri:0, instance:com.elong.air.tests.TestSearchField@650d1c98]" name="befclass" is-config="true" duration-ms="6509" started-at="2016-06-06T09:38:22Z" finished-at="2016-06-06T09:38:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- befclass -->
-        <test-method status="PASS" signature="testSearchField(java.lang.Object)[pri:0, instance:com.elong.air.tests.TestSearchField@64959a7a]" name="testSearchField" duration-ms="8078" started-at="2016-06-03T18:50:47Z" data-provider="testdp" finished-at="2016-06-03T18:50:55Z">
+        <test-method status="PASS" signature="testSearchField(java.lang.Object)[pri:0, instance:com.elong.air.tests.TestSearchField@650d1c98]" name="testSearchField" duration-ms="7776" started-at="2016-06-06T09:38:29Z" data-provider="testdp" finished-at="2016-06-06T09:38:36Z">
           <params>
             <param index="0">
               <value>
@@ -22,7 +22,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSearchField -->
-        <test-method status="PASS" signature="aftclass()[pri:0, instance:com.elong.air.tests.TestSearchField@64959a7a]" name="aftclass" is-config="true" duration-ms="1106" started-at="2016-06-03T18:50:55Z" finished-at="2016-06-03T18:50:56Z">
+        <test-method status="PASS" signature="aftclass()[pri:0, instance:com.elong.air.tests.TestSearchField@650d1c98]" name="aftclass" is-config="true" duration-ms="1199" started-at="2016-06-06T09:38:36Z" finished-at="2016-06-06T09:38:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- aftclass -->

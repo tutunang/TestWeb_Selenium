@@ -8,14 +8,15 @@
 <test name="OW">
   <classes>
       <class name="com.elong.air.tests.TestCreateSingleOrder"/>
+      <class name="com.elong.air.tests.TestSearchField"/>
   </classes>
 </test> 
 
-<test name="ROUND">
+<!-- <test name="ROUND">
   <classes>
       <class name="com.elong.air.tests.TestCreateSingleOrder"/>
   </classes>
-</test> 
+</test>  -->
 </suite> 
 <!-- 指定测试方法 
 <methods>
