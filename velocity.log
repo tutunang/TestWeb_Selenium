@@ -29,3 +29,10 @@ Mon Jun 06 10:13:20 CST 2016   [info] Velocimacro : messages on  : VM system wil
 Mon Jun 06 10:13:20 CST 2016   [info] Velocimacro : autoload off  : VM system will not automatically reload global library macros
 Mon Jun 06 10:13:20 CST 2016   [info] Velocimacro : initialization complete.
 Mon Jun 06 10:13:20 CST 2016   [info] Velocity successfully started.
+Mon Jun 06 10:16:54 CST 2016   [info] ResourceManager : found org/uncommons/reportng/templates/html/index.html.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Mon Jun 06 10:16:54 CST 2016   [info] ResourceManager : found org/uncommons/reportng/templates/html/overview.html.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Mon Jun 06 10:16:54 CST 2016   [info] ResourceManager : found org/uncommons/reportng/templates/html/suites.html.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Mon Jun 06 10:16:54 CST 2016   [info] ResourceManager : found org/uncommons/reportng/templates/html/results.html.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Mon Jun 06 10:16:54 CST 2016   [info] ResourceManager : found org/uncommons/reportng/templates/html/class-results.html.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Mon Jun 06 10:16:54 CST 2016   [info] ResourceManager : found org/uncommons/reportng/templates/html/class-results.html.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Mon Jun 06 10:16:54 CST 2016   [info] ResourceManager : found org/uncommons/reportng/templates/html/output.html.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader

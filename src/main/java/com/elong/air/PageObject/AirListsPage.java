@@ -33,6 +33,9 @@ public class AirListsPage extends BasePage{
 	@FindBy(css = "#flightlist .flightlist .fltable-div  .bizopt")
 	public List<WebElement> bizopt;
 	
+	@FindBy(css = "#classM")
+	public WebElement classTypeCheckbox;
+	
 	@FindBy(xpath = "//table[@class='fltable']/tbody//td[1]/span")
 	public List<WebElement> airList;
 	//商务优选
@@ -93,6 +96,9 @@ public class AirListsPage extends BasePage{
 		
 		return new InputInformationPage(driver);
 
+	}
+	public boolean verfiyClassTypeM(){
+		return classTypeCheckbox.isSelected();
 	}
 	
 }

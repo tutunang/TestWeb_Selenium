@@ -46,6 +46,9 @@ public List<WebElement> iKnowButton;
 @FindBy(css=".add.clx>a")
 public WebElement addPassenger;
 
+@FindBy(css="span[method='advance']")
+public WebElement advanceLink;
+
 
 public CheckOrderPage putPassInfoBean (List<PassenagerInfoBean>s) throws AirException {
 	this.addPassenger(s.size());

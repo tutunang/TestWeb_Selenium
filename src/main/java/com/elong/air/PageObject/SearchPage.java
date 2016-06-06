@@ -114,6 +114,11 @@ public class SearchPage extends BasePage {
 				click(key1);
 			}
 		}
+		if(StringUtils.isNotEmpty(bean.getCabinLevel())&&bean.getCabinLevel().equals("M")){
+		String	classType = "document.getElementById(\"ClassType\").value= '"+bean.getCabinLevel()+"'";
+		((JavascriptExecutor)driver).executeScript(classType);
+		}
+		
 		clickSearchButton();
 		try {
 			if (errorMsg.isDisplayed()) {

@@ -2,31 +2,31 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="15683" started-at="2016-06-06T01:38:22Z" finished-at="2016-06-06T01:38:38Z">
+  <suite name="Default suite" duration-ms="148865" started-at="2016-06-06T11:02:27Z" finished-at="2016-06-06T11:04:56Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="15683" started-at="2016-06-06T01:38:22Z" finished-at="2016-06-06T01:38:38Z">
-      <class name="com.elong.air.tests.TestSearchField">
-        <test-method status="PASS" signature="befclass()[pri:0, instance:com.elong.air.tests.TestSearchField@650d1c98]" name="befclass" is-config="true" duration-ms="6509" started-at="2016-06-06T09:38:22Z" finished-at="2016-06-06T09:38:28Z">
+    <test name="Default test" duration-ms="148865" started-at="2016-06-06T11:02:27Z" finished-at="2016-06-06T11:04:56Z">
+      <class name="com.elong.air.tests.TestSearchField_ClassType">
+        <test-method status="PASS" signature="befclass()[pri:0, instance:com.elong.air.tests.TestSearchField_ClassType@6abfc6e4]" name="befclass" is-config="true" duration-ms="5462" started-at="2016-06-06T19:02:27Z" finished-at="2016-06-06T19:02:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- befclass -->
-        <test-method status="PASS" signature="testSearchField(java.lang.Object)[pri:0, instance:com.elong.air.tests.TestSearchField@650d1c98]" name="testSearchField" duration-ms="7776" started-at="2016-06-06T09:38:29Z" data-provider="testdp" finished-at="2016-06-06T09:38:36Z">
+        <test-method status="PASS" signature="testSearchField(java.lang.Object)[pri:0, instance:com.elong.air.tests.TestSearchField_ClassType@6abfc6e4]" name="testSearchField" duration-ms="141904" started-at="2016-06-06T19:02:33Z" data-provider="testdp" finished-at="2016-06-06T19:04:55Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[3]]>
+                <![CDATA[4]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSearchField -->
-        <test-method status="PASS" signature="aftclass()[pri:0, instance:com.elong.air.tests.TestSearchField@650d1c98]" name="aftclass" is-config="true" duration-ms="1199" started-at="2016-06-06T09:38:36Z" finished-at="2016-06-06T09:38:38Z">
+        <test-method status="PASS" signature="aftclass()[pri:0, instance:com.elong.air.tests.TestSearchField_ClassType@6abfc6e4]" name="aftclass" is-config="true" duration-ms="1295" started-at="2016-06-06T19:04:55Z" finished-at="2016-06-06T19:04:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- aftclass -->
-      </class> <!-- com.elong.air.tests.TestSearchField -->
+      </class> <!-- com.elong.air.tests.TestSearchField_ClassType -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

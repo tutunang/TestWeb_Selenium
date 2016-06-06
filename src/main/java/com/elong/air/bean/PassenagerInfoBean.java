@@ -2,6 +2,8 @@ package com.elong.air.bean;
 
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.elong.air.base.BaseBean;
 
 public class PassenagerInfoBean extends BaseBean {
@@ -111,27 +113,59 @@ public class PassenagerInfoBean extends BaseBean {
 	 */
 	private void initTestData(Map<String, String> map, int index) {
 		// TODO Auto-generated method stub
-		String[] destName = map.get("乘机人姓名").split(";");
-		String[] destTpye = map.get("证件类型").split(";");
-		String[] destCardNum = map.get("证件号码").split(";");
-		String[] destBirthDate = map.get("出生日期").split(";");
-		String[] destInsuranceAmount = map.get("购买保险").split(";");
+		//String[] destName = map.get("乘机人姓名").split(";");
+		if(StringUtils.isNotEmpty(map.get("乘机人姓名"))){
+			String[] destName = map.get("乘机人姓名").split(";");
+			String name = destName[index];
+			setPassengerName(name);
+		}
+		if(StringUtils.isNotEmpty(map.get("证件类型"))){
+			String[] destTpye = map.get("证件类型").split(";");
+			String type = destTpye[index];
+			int parseInt = Integer.parseInt(type);
+			setCardType(parseInt);
+		}
+		if(StringUtils.isNotEmpty(map.get("证件号码"))){
+			String[] destCardNum = map.get("证件号码").split(";");
+			String cardNum = destCardNum[index];
+			setPassenagerId(cardNum);
+		}
+			if(StringUtils.isNotEmpty(map.get("出生日期"))){
+				String[] destBirthDate = map.get("出生日期").split(";");
+				String birthDate = destBirthDate[index];
+				setBirthDate(birthDate);
+			}
+			if(StringUtils.isNotEmpty(map.get("购买保险"))){
+				String[] destInsuranceAmount = map.get("购买保险").split(";");
+				String amount = destInsuranceAmount[index];
+				int amountInsurance = Integer.parseInt(amount);
+				setInsuranceAmount(amountInsurance);
+			}
+	//	String[] destTpye = map.get("证件类型").split(";");
+	//	String[] destCardNum = map.get("证件号码").split(";");
+	//	String[] destBirthDate = map.get("出生日期").split(";");
+	//	String[] destInsuranceAmount = map.get("购买保险").split(";");
 
-		String name = destName[index];
-		String type = destTpye[index];
-		int parseInt = Integer.parseInt(type);
-		String cardNum = destCardNum[index];
-		String birthDate = destBirthDate[index];
-		String amount = destInsuranceAmount[index];
-		int amountInsurance = Integer.parseInt(amount);
+	//	String name = destName[index];
+	//	String type = destTpye[index];
+	//	int parseInt = Integer.parseInt(type);
+	//	String cardNum = destCardNum[index];
+		//String birthDate = destBirthDate[index];
+	//	String amount = destInsuranceAmount[index];
+	//	int amountInsurance = Integer.parseInt(amount);
 
-		setPassengerName(name);
-		setCardType(parseInt);
-		setPassenagerId(cardNum);
-		setBirthDate(birthDate);
-		setInsuranceAmount(amountInsurance);
-		setPhoneNum(map.get("手机号"));
-		setEmailAddress(map.get("email"));
+	//	setPassengerName(name);
+	//	setCardType(parseInt);
+	//	setPassenagerId(cardNum);
+	//	setBirthDate(birthDate);
+	//	setInsuranceAmount(amountInsurance);
+			if(StringUtils.isNotEmpty(map.get("手机号"))){
+		        setPhoneNum(map.get("手机号"));
+		}
+			if(StringUtils.isNotEmpty(map.get("email"))){
+		        setPhoneNum(map.get("email"));
+		}
+	//	setEmailAddress(map.get("email"));
 
 	}
 

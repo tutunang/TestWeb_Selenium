@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Test_GUI_AIR]" parallel="true">
+  <listeners>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="com.elong.air.base.BaseScreenShortListener"/>
+  </listeners>
+  <test name="OW(failed)" parallel="true">
+    <classes>
+      <class name="com.elong.air.tests.TestSearchField">
+        <methods>
+          <include name="befclass"/>
+          <include name="aftclass"/>
+        </methods>
+      </class> <!-- com.elong.air.tests.TestSearchField -->
+      <class name="com.elong.air.tests.TestCreateSingleOrder">
+        <methods>
+          <include name="befclass"/>
+          <include name="createSingleOrder" invocation-numbers="0"/>
+          <include name="aftclass"/>
+        </methods>
+      </class> <!-- com.elong.air.tests.TestCreateSingleOrder -->
+    </classes>
+  </test> <!-- OW(failed) -->
+</suite> <!-- Failed suite [Test_GUI_AIR] -->
