@@ -9,6 +9,7 @@
   <classes>
       <class name="com.elong.air.tests.TestCreateSingleOrder"/>
       <class name="com.elong.air.tests.TestSearchField"/>
+        <class name="com.elong.air.tests.TestSearchField_ClassType"/>
   </classes>
 </test> 
 
