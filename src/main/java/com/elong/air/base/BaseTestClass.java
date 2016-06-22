@@ -75,7 +75,9 @@ public class BaseTestClass {
 	protected void takeScreenShort(ITestResult result) {
 		Object currentClass = result.getInstance();
 		WebDriver webDriver = ((BaseTestClass) currentClass).getDriver();
-
+		
+		
+		
 		if (webDriver != null) {
 			Date currentTime = new Date();
 			SimpleDateFormat formatter = new SimpleDateFormat(
@@ -97,9 +99,11 @@ public class BaseTestClass {
 				//System.out.println("---------------faile file name: "
 				//		+ filename);
 				File file = new File("ExceptionScreenshotImg/" + fileclass);
-				if (!file.exists()) {
-					file.mkdir();
+				if (file.exists()) {
+					file.delete();
 				}
+				file.mkdir();
+				
 				File screenshot = new File(file, filename);
 				FileUtils.copyFile(scrFile, screenshot);
 
