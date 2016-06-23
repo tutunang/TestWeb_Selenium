@@ -35,7 +35,6 @@ public class TestCreateSingleOrder extends BaseTestClass{
 //		FinishedOrderPage fop=pp.inputBankInformation();
 //		fop.verify();
 		
-		
 	}
 
 }

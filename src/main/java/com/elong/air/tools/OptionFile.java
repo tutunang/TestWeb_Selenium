@@ -482,6 +482,7 @@ public class OptionFile {
 	public static List<Integer> getExcelPriority(String path, int index,
 			String p) {
 		int rowcount = 0;
+		//表示从excel的第三行开始迭代直到最后一行
 		int rowstart = 3;
 		String value = "";
 		List<Integer> list = new ArrayList<Integer>();
@@ -505,12 +506,13 @@ public class OptionFile {
 			// HSSFWorkbook wb = new HSSFWorkbook(new POIFSFileSystem(in));
 			// Sheet sheet = wb.getSheetAt(index);
 		//	Row header = sheet.getRow(0);
+			//获取行的数目
 			rowcount = sheet.getLastRowNum() + 1;
 
 			if (p.equals("ALL") || p.equals("P1") || p.equals("P2")
 					|| p.equals("P3")) {
 				for (int i = rowstart; i <= rowcount; i++) {
-					//2 为excel第二列（级别）
+					//找到某一个excel的位置。3为第三行，2 为excel第二列（级别）---》p所在的位置
 					value = getExcel(path, index, i, 2);
 					// 得到指定用例优先级的的casenum，存入list
 					if (p.equals("ALL")) {
@@ -561,12 +563,14 @@ public class OptionFile {
 			int index, int caseNum) {
 		int rowstart = 2;
 		int colstart = 4;
+		//取得excel中测试数据列数
 		int elementcount = Integer.parseInt(getExcel(path, index, 1, 4));
 
 		Map<String, String> map = new HashMap<String, String>();
-
 		for (int i = 0; i < elementcount; i++) {
+			//取测试名称
 			String key = getExcel(path, index, rowstart, colstart + i);
+			//取得级别所对应的测试数据
 			String value = getExcel(path, index, caseNum, colstart + i);
 
 			map.put(key, value);
