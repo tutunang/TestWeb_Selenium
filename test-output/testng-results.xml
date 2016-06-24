@@ -2,19 +2,23 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
     <line>
-      <![CDATA[Failed Screen Shot Path：D:\eclipseWorkSpace\Test_GUI_AIR\ExceptionScreenshotImg\com.elong.air.tests.TestCreateSingleOrder\com.elong.air.tests.TestCreateSingleOrder-createSingleOrder-2016-06-22-16-51-48.png]]>
+      <![CDATA[Failed Screen Shot Path：D:\eclipseWorkSpace\Test_GUI_AIR\ExceptionScreenshotImg\com.elong.air.tests.TestCreateSingleOrder\com.elong.air.tests.TestCreateSingleOrder-createSingleOrder-2016-06-24-12-57-53.png]]>
     </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="15275" started-at="2016-06-22T08:51:35Z" finished-at="2016-06-22T08:51:50Z">
+  <suite name="Default suite" duration-ms="179183" started-at="2016-06-24T04:54:56Z" finished-at="2016-06-24T04:57:55Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="15275" started-at="2016-06-22T08:51:35Z" finished-at="2016-06-22T08:51:50Z">
+    <test name="Default test" duration-ms="179183" started-at="2016-06-24T04:54:56Z" finished-at="2016-06-24T04:57:55Z">
       <class name="com.elong.air.tests.TestCreateSingleOrder">
-        <test-method status="PASS" signature="befclass()[pri:0, instance:com.elong.air.tests.TestCreateSingleOrder@d3b8dae]" name="befclass" is-config="true" duration-ms="5564" started-at="2016-06-22T16:51:35Z" finished-at="2016-06-22T16:51:40Z">
+        <test-method status="PASS" signature="cleanScreenShot()[pri:0, instance:com.elong.air.tests.TestCreateSingleOrder@5ec02dac]" name="cleanScreenShot" is-config="true" duration-ms="22" started-at="2016-06-24T12:54:56Z" finished-at="2016-06-24T12:54:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanScreenShot -->
+        <test-method status="PASS" signature="befclass()[pri:0, instance:com.elong.air.tests.TestCreateSingleOrder@5ec02dac]" name="befclass" is-config="true" duration-ms="34964" started-at="2016-06-24T12:54:56Z" finished-at="2016-06-24T12:55:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- befclass -->
-        <test-method status="FAIL" signature="createSingleOrder(java.lang.Object)[pri:0, instance:com.elong.air.tests.TestCreateSingleOrder@d3b8dae]" name="createSingleOrder" duration-ms="7831" started-at="2016-06-22T16:51:41Z" data-provider="testdp" finished-at="2016-06-22T16:51:48Z">
+        <test-method status="FAIL" signature="createSingleOrder(java.lang.Object)[pri:0, instance:com.elong.air.tests.TestCreateSingleOrder@5ec02dac]" name="createSingleOrder" duration-ms="142534" started-at="2016-06-24T12:55:31Z" data-provider="testdp" finished-at="2016-06-24T12:57:53Z">
           <params>
             <param index="0">
               <value>
@@ -22,9 +26,15 @@
               </value>
             </param>
           </params>
-          <exception class="java.lang.NullPointerException">
+          <exception class="java.lang.IllegalStateException">
+            <message>
+              <![CDATA[页面未加载完毕或者找不到元素]]>
+            </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
+              <![CDATA[java.lang.IllegalStateException: 页面未加载完毕或者找不到元素
+	at com.elong.air.base.BasePage.<init>(BasePage.java:105)
+	at com.elong.air.PageObject.InputInformationPage.<init>(InputInformationPage.java:19)
+	at com.elong.air.PageObject.AirListsPage.getFirstBizopt(AirListsPage.java:51)
 	at com.elong.air.tests.TestCreateSingleOrder.createSingleOrder(TestCreateSingleOrder.java:30)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
@@ -52,14 +62,14 @@
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- java.lang.IllegalStateException -->
           <reporter-output>
             <line>
-              <![CDATA[Failed Screen Shot Path：D:\eclipseWorkSpace\Test_GUI_AIR\ExceptionScreenshotImg\com.elong.air.tests.TestCreateSingleOrder\com.elong.air.tests.TestCreateSingleOrder-createSingleOrder-2016-06-22-16-51-48.png]]>
+              <![CDATA[Failed Screen Shot Path：D:\eclipseWorkSpace\Test_GUI_AIR\ExceptionScreenshotImg\com.elong.air.tests.TestCreateSingleOrder\com.elong.air.tests.TestCreateSingleOrder-createSingleOrder-2016-06-24-12-57-53.png]]>
             </line>
           </reporter-output>
         </test-method> <!-- createSingleOrder -->
-        <test-method status="PASS" signature="aftclass()[pri:0, instance:com.elong.air.tests.TestCreateSingleOrder@d3b8dae]" name="aftclass" is-config="true" duration-ms="1316" started-at="2016-06-22T16:51:49Z" finished-at="2016-06-22T16:51:50Z">
+        <test-method status="PASS" signature="aftclass()[pri:0, instance:com.elong.air.tests.TestCreateSingleOrder@5ec02dac]" name="aftclass" is-config="true" duration-ms="1296" started-at="2016-06-24T12:57:54Z" finished-at="2016-06-24T12:57:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- aftclass -->

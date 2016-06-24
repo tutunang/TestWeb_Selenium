@@ -48,7 +48,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\wenjing.du\AppData\Local\Temp\testng-eclipse--850826829\testng-customsuite.xml</span>
+                    <span>C:\Users\wenjing.du\AppData\Local\Temp\testng-eclipse-1571818397\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -128,7 +128,10 @@
                   </a> <!-- createSingleOrder(4) -->
                   <span class="method-name">createSingleOrder</span>
                   <span class="parameters">(4)</span>
-                  <div class="stack-trace">java.lang.NullPointerException
+                  <div class="stack-trace">java.lang.IllegalStateException: 页面未加载完毕或者找不到元素
+	at com.elong.air.base.BasePage.&lt;init&gt;(BasePage.java:105)
+	at com.elong.air.PageObject.InputInformationPage.&lt;init&gt;(InputInformationPage.java:19)
+	at com.elong.air.PageObject.AirListsPage.getFirstBizopt(AirListsPage.java:51)
 	at com.elong.air.tests.TestCreateSingleOrder.createSingleOrder(TestCreateSingleOrder.java:30)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
@@ -163,7 +166,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\wenjing.du\AppData\Local\Temp\testng-eclipse--850826829\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\wenjing.du\AppData\Local\Temp\testng-eclipse-1571818397\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -216,12 +219,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'createSingleOrder')
 data.setCell(0, 2, 'com.elong.air.tests.TestCreateSingleOrder')
-data.setCell(0, 3, 7831);
+data.setCell(0, 3, 142534);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 7 seconds</span>
+              <span class="suite-total-time">Total running time: 2 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -235,7 +238,7 @@ return data;
             <div class="reporter-method-div">
               <span class="reporter-method-name">createSingleOrder(4)</span>
               <div class="reporter-method-output-div">
-                <span class="reporter-method-output">Failed Screen Shot Path：D:\eclipseWorkSpace\Test_GUI_AIR\ExceptionScreenshotImg\com.elong.air.tests.TestCreateSingleOrder\com.elong.air.tests.TestCreateSingleOrder-createSingleOrder-2016-06-22-16-51-48.png</span>
+                <span class="reporter-method-output">Failed Screen Shot Path：D:\eclipseWorkSpace\Test_GUI_AIR\ExceptionScreenshotImg\com.elong.air.tests.TestCreateSingleOrder\com.elong.air.tests.TestCreateSingleOrder-createSingleOrder-2016-06-24-12-57-53.png</span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -254,19 +257,23 @@ return data;
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
               <div class="chronological-class-name">com.elong.air.tests.TestCreateSingleOrder</div> <!-- chronological-class-name -->
+              <div class="configuration-suite before">
+                <span class="method-name">cleanScreenShot</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-suite before -->
               <div class="configuration-class before">
                 <span class="method-name">befclass</span>
-                <span class="method-start">0 ms</span>
+                <span class="method-start">27 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">createSingleOrder(4)</span>
-                <span class="method-start">5762 ms</span>
+                <span class="method-start">35202 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">aftclass</span>
-                <span class="method-start">13952 ms</span>
+                <span class="method-start">177909 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

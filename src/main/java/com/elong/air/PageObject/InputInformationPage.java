@@ -63,9 +63,8 @@ public CheckOrderPage putPassInfoBean (List<PassenagerInfoBean>s) throws AirExce
 		this.setInputText(passengerNameInputTextField.get(i), bean.getPassengerName());
 		this.setInputText(passengerIdInputTextField.get(i), bean.getPassenagerId());
 		this.setInputText(phoneInputTextField, bean.getPhoneNum());
-			summbitOrder();
-		
 	}
+	summbitOrder();
 	return new CheckOrderPage(driver);
 }
 

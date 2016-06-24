@@ -34,9 +34,9 @@ public PaymentMethodPage submitOrder() throws AirException {
 	catch(Exception air){
 		click(sumbitButton);
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		System.out.println("handle" + driver.getWindowHandle());
-		System.out.println("url" + driver.getCurrentUrl());
-		System.out.println("title" + driver.getTitle());
+//		System.out.println("handle" + driver.getWindowHandle());
+//		System.out.println("url" + driver.getCurrentUrl());
+//		System.out.println("title" + driver.getTitle());
 		return new PaymentMethodPage(driver);
 	}
 	return null;

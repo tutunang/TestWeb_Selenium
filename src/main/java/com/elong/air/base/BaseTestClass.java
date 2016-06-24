@@ -14,7 +14,9 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 
+import com.elong.air.tools.Common;
 import com.elong.air.tools.DriverFactory;
 import com.elong.air.tools.OptionFile;
 
@@ -59,6 +61,13 @@ public class BaseTestClass {
 		log.debug("------执行afterclass结束------");
 	}
 	
+	@BeforeSuite
+	public void cleanScreenShot() {
+		log.debug("------执行@BeforeSuites开始------");
+        Common.deleteDir(new File("ExceptionScreenshotImg"));
+		log.debug("------执行@BeforeSuite结束------");
+	}
+	
 	private void visitorURL() {
 		String url = OptionFile.readProperties("./src/test/resources/logininfo.properties", "URL");
 		driver.get(url);
@@ -90,20 +99,10 @@ public class BaseTestClass {
 				String filename = fileclass + "-" + result.getName() + "-"
 						+ dateString + ".png";
 
-				/*
-				 * System.out.println("3========="+result.getMethod().getTestClass
-				 * ().getName());//ok
-				 * System.out.println("5========="+result.getTestClass
-				 * ().getName());//ok
-				 */
-				//System.out.println("---------------faile file name: "
-				//		+ filename);
 				File file = new File("ExceptionScreenshotImg/" + fileclass);
-				if (file.exists()) {
-					file.delete();
+				if (!file.exists()) {
+					file.mkdir();
 				}
-				file.mkdir();
-				
 				File screenshot = new File(file, filename);
 				FileUtils.copyFile(scrFile, screenshot);
 

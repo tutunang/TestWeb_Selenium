@@ -163,7 +163,7 @@ public class PassenagerInfoBean extends BaseBean {
 		        setPhoneNum(map.get("手机号"));
 		}
 			if(StringUtils.isNotEmpty(map.get("email"))){
-		        setPhoneNum(map.get("email"));
+		        setEmailAddress(map.get("email"));
 		}
 	//	setEmailAddress(map.get("email"));
 

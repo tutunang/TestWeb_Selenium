@@ -46,7 +46,7 @@ public class AirListsPage extends BasePage{
 			if (name.equals("bizopt")) {
 				WebElement book = e.findElement(By.xpath("../..//td[7]/div/input"));
 				//driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS); 
-				TakeScreenShot.takeScreenShot(driver);
+				//TakeScreenShot.takeScreenShot(driver);
 				click(book);
 				return new InputInformationPage(driver);
 			}

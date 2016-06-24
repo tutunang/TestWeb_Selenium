@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Jun 22 16:51:35 CST 2016</td>
+<td>Started on:</td><td>Fri Jun 24 12:54:56 CST 2016</td>
 </tr>
-<tr><td>Total time:</td><td>15 seconds (15275 ms)</td>
+<tr><td>Total time:</td><td>179 seconds (179183 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,14 +76,17 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='com.elong.air.tests.TestCreateSingleOrder.createSingleOrder()'><b>createSingleOrder</b><br>Test class: com.elong.air.tests.TestCreateSingleOrder<br>Parameters: 4<br/>
-<a href="#Output-1883297302" onClick='toggleBox("Output-1883297302", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-313392823" onClick='toggleBox("Output-313392823", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1883297302" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1883297302">
-Failed Screen Shot Path：D:\eclipseWorkSpace\Test_GUI_AIR\ExceptionScreenshotImg\com.elong.air.tests.TestCreateSingleOrder\com.elong.air.tests.TestCreateSingleOrder-createSingleOrder-2016-06-22-16-51-48.png<br/>
+<a href="#Output-313392823" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-313392823">
+Failed Screen Shot Path：D:\eclipseWorkSpace\Test_GUI_AIR\ExceptionScreenshotImg\com.elong.air.tests.TestCreateSingleOrder\com.elong.air.tests.TestCreateSingleOrder-createSingleOrder-2016-06-24-12-57-53.png<br/>
 </div>
 </td>
-<td><div><pre>java.lang.NullPointerException
+<td><div><pre>java.lang.IllegalStateException: 页面未加载完毕或者找不到元素
+	at com.elong.air.base.BasePage.&lt;init&gt;(BasePage.java:105)
+	at com.elong.air.PageObject.InputInformationPage.&lt;init&gt;(InputInformationPage.java:19)
+	at com.elong.air.PageObject.AirListsPage.getFirstBizopt(AirListsPage.java:51)
 	at com.elong.air.tests.TestCreateSingleOrder.createSingleOrder(TestCreateSingleOrder.java:30)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
@@ -109,8 +112,11 @@ Failed Screen Shot Path：D:\eclipseWorkSpace\Test_GUI_AIR\ExceptionScreenshotIm
 	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1883297302", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1883297302'><pre>java.lang.NullPointerException
+</pre></div><a href='#' onClick='toggleBox("stack-trace313392823", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace313392823'><pre>java.lang.IllegalStateException: 页面未加载完毕或者找不到元素
+	at com.elong.air.base.BasePage.&lt;init&gt;(BasePage.java:105)
+	at com.elong.air.PageObject.InputInformationPage.&lt;init&gt;(InputInformationPage.java:19)
+	at com.elong.air.PageObject.AirListsPage.getFirstBizopt(AirListsPage.java:51)
 	at com.elong.air.tests.TestCreateSingleOrder.createSingleOrder(TestCreateSingleOrder.java:30)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
@@ -137,8 +143,8 @@ Failed Screen Shot Path：D:\eclipseWorkSpace\Test_GUI_AIR\ExceptionScreenshotIm
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
 </pre></div></td>
-<td>7</td>
-<td>com.elong.air.tests.TestCreateSingleOrder@d3b8dae</td></tr>
+<td>142</td>
+<td>com.elong.air.tests.TestCreateSingleOrder@5ec02dac</td></tr>
 </table><p>
 </body>
 </html>

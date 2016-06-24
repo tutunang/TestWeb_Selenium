@@ -1,5 +1,6 @@
 package com.elong.air.tools;
 
+import java.io.File;
 import java.util.List;
 import java.util.Random;
 import java.util.regex.Pattern;
@@ -29,7 +30,19 @@ public class Common {
 	 * @param element
 	 * @param row
 	 * @param col
+	 * @return 
 	 */
+	
+	 public static void deleteDir(File dir) {
+	        if (dir.isDirectory()) {
+	            String[] children = dir.list();
+	            for (int i=0; i<children.length; i++) {
+	              deleteDir(new File(dir, children[i]));
+	            }
+	        }
+	        // 目录此时为空，可以删除
+	        dir.delete();
+	    }
 	public static WebElement cellOfTable(WebElement element,int row, int col) {
 		System.out.println("获取表格单元格内容，行列分别为："+row+";"+col);
 		List<WebElement> rows = element.findElements(By.tagName("tr"));

@@ -5,6 +5,7 @@
     <classes>
       <class name="com.elong.air.tests.TestCreateSingleOrder">
         <methods>
+          <include name="cleanScreenShot"/>
           <include name="befclass"/>
           <include name="createSingleOrder" invocation-numbers="0"/>
           <include name="aftclass"/>
