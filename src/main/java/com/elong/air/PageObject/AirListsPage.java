@@ -63,8 +63,6 @@ public class AirListsPage extends BasePage{
 			String name = e.getAttribute("class");
 			if (name.equals("bizopt")) {
 				WebElement book = e.findElement(By.xpath("../..//td[7]/div/input"));
-				//driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS); 
-				TakeScreenShot.takeScreenShot(driver);
 				click(book);
 				return new AirListsRoundTripPage(driver);
 			}
@@ -99,6 +97,9 @@ public class AirListsPage extends BasePage{
 	}
 	public boolean verfiyClassTypeM(){
 		return classTypeCheckbox.isSelected();
+	}
+	public List<WebElement> verfiyAirList(){
+		return airList;
 	}
 	
 }

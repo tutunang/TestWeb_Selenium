@@ -91,7 +91,7 @@ public class BasePage {
 		final String logo = OptionFile.readProperties(
 				"./src/main/resources/pagetitle.properties", pagetitle);
 		this.driver = driver;
-		System.out.println("当前page类是：" + pagetitle + " ;取到的title是：" + logo);
+		System.out.println("当前page类是：" + pagetitle + " ;取到的logo是：" + logo);
 		
 		WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
 		try {
@@ -118,7 +118,7 @@ public class BasePage {
 	/*-------------------------常用方法封装------------------------------------------------------------*/
 	protected void click(WebElement element) {
 		// switchFrame(element);
-		takeScreenShot(driver);
+	//	takeScreenShot(driver);
 		element.click();
 	}
 
@@ -193,20 +193,20 @@ public class BasePage {
 	}
 
 	// 截图
-	protected void takeScreenShot(WebDriver driver) {
-		final String path = "D:/eclipseWorkSpace/AirGUIDemo/test-output/ScreenShot/";
-		try {
-			File file = ((TakesScreenshot) driver)
-					.getScreenshotAs(OutputType.FILE);
-			Random rd = new Random();
-			int tmp = Math.abs(rd.nextInt());
-			System.out.println(path + name + "jjjjjjjjjjjjjjjjjjjjjjjjj");
-			FileUtils.copyFile(file, new File(path + name, tmp
-					+ "screenshopt.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+//	protected void takeScreenShot(WebDriver driver) {
+//		final String path = "D:/eclipseWorkSpace/AirGUIDemo/test-output/ScreenShot/";
+//		try {
+//			File file = ((TakesScreenshot) driver)
+//					.getScreenshotAs(OutputType.FILE);
+//			Random rd = new Random();
+//			int tmp = Math.abs(rd.nextInt());
+//			System.out.println(path + name + "jjjjjjjjjjjjjjjjjjjjjjjjj");
+//			FileUtils.copyFile(file, new File(path + name, tmp
+//					+ "screenshopt.png"));
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//	}
 	/*----------------------------qiaojiafei----------------------------*/
 	/**
 	 * 刷新页面

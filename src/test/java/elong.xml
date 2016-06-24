@@ -9,15 +9,16 @@
   <classes>
       <class name="com.elong.air.tests.TestCreateSingleOrder"/>
       <class name="com.elong.air.tests.TestSearchField"/>
-        <class name="com.elong.air.tests.TestSearchField_ClassType"/>
+      <class name="com.elong.air.tests.TestSearchField_ClassType"/>
+      <class name="com.elong.air.tests.TestCheckAirLists"/>
   </classes>
 </test> 
 
-<!-- <test name="ROUND">
+<test name="ROUND">
   <classes>
-      <class name="com.elong.air.tests.TestCreateSingleOrder"/>
+      <class name="com.elong.air.tests.TestCreateOrder_RoundTrip"/>
   </classes>
-</test>  -->
+</test> 
 </suite> 
 <!-- 指定测试方法 
 <methods>

@@ -2,46 +2,61 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
     <line>
-      <![CDATA[Failed Screen Shot Path：D:\eclipseWorkSpace\Test_GUI_AIR\ExceptionScreenshotImg\com.elong.air.tests.TestCreateSingleOrder\com.elong.air.tests.TestCreateSingleOrder-createSingleOrder-2016-06-24-12-57-53.png]]>
+      <![CDATA[Failed Screen Shot Path：D:\eclipseWorkSpace\Test_GUI_AIR\ExceptionScreenshotImg\com.elong.air.tests.TestCreateOrder_RoundTrip\com.elong.air.tests.TestCreateOrder_RoundTrip-createSingleOrder-2016-06-24-18-02-58.png]]>
     </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="179183" started-at="2016-06-24T04:54:56Z" finished-at="2016-06-24T04:57:55Z">
+  <suite name="Default suite" duration-ms="115042" started-at="2016-06-24T10:01:05Z" finished-at="2016-06-24T10:03:00Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="179183" started-at="2016-06-24T04:54:56Z" finished-at="2016-06-24T04:57:55Z">
-      <class name="com.elong.air.tests.TestCreateSingleOrder">
-        <test-method status="PASS" signature="cleanScreenShot()[pri:0, instance:com.elong.air.tests.TestCreateSingleOrder@5ec02dac]" name="cleanScreenShot" is-config="true" duration-ms="22" started-at="2016-06-24T12:54:56Z" finished-at="2016-06-24T12:54:56Z">
+    <test name="Default test" duration-ms="115042" started-at="2016-06-24T10:01:05Z" finished-at="2016-06-24T10:03:00Z">
+      <class name="com.elong.air.tests.TestCreateOrder_RoundTrip">
+        <test-method status="PASS" signature="cleanScreenShot()[pri:0, instance:com.elong.air.tests.TestCreateOrder_RoundTrip@7bbca7ab]" name="cleanScreenShot" is-config="true" duration-ms="8" started-at="2016-06-24T18:01:05Z" finished-at="2016-06-24T18:01:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanScreenShot -->
-        <test-method status="PASS" signature="befclass()[pri:0, instance:com.elong.air.tests.TestCreateSingleOrder@5ec02dac]" name="befclass" is-config="true" duration-ms="34964" started-at="2016-06-24T12:54:56Z" finished-at="2016-06-24T12:55:31Z">
+        <test-method status="PASS" signature="befclass()[pri:0, instance:com.elong.air.tests.TestCreateOrder_RoundTrip@7bbca7ab]" name="befclass" is-config="true" duration-ms="8937" started-at="2016-06-24T18:01:05Z" finished-at="2016-06-24T18:01:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- befclass -->
-        <test-method status="FAIL" signature="createSingleOrder(java.lang.Object)[pri:0, instance:com.elong.air.tests.TestCreateSingleOrder@5ec02dac]" name="createSingleOrder" duration-ms="142534" started-at="2016-06-24T12:55:31Z" data-provider="testdp" finished-at="2016-06-24T12:57:53Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[4]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.IllegalStateException">
+        <test-method status="FAIL" signature="createSingleOrder(java.lang.Object)[pri:0, instance:com.elong.air.tests.TestCreateOrder_RoundTrip@7bbca7ab]" name="createSingleOrder" duration-ms="104082" started-at="2016-06-24T18:01:14Z" data-provider="testdp" finished-at="2016-06-24T18:02:58Z">
+          <exception class="org.openqa.selenium.UnhandledAlertException">
             <message>
-              <![CDATA[页面未加载完毕或者找不到元素]]>
+              <![CDATA[Unexpected modal dialog (text: 已售完): 已售完
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'EBJ4468', ip: '10.20.254.70', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_17'
+Session ID: 7ffa3bc9-f361-4bd1-800b-bd048b3b2236
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=WINDOWS, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=33.1.1}]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.IllegalStateException: 页面未加载完毕或者找不到元素
-	at com.elong.air.base.BasePage.<init>(BasePage.java:105)
-	at com.elong.air.PageObject.InputInformationPage.<init>(InputInformationPage.java:19)
-	at com.elong.air.PageObject.AirListsPage.getFirstBizopt(AirListsPage.java:51)
-	at com.elong.air.tests.TestCreateSingleOrder.createSingleOrder(TestCreateSingleOrder.java:30)
+              <![CDATA[org.openqa.selenium.UnhandledAlertException: Unexpected modal dialog (text: 已售完): 已售完
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'EBJ4468', ip: '10.20.254.70', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_17'
+Session ID: 7ffa3bc9-f361-4bd1-800b-bd048b3b2236
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=WINDOWS, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=33.1.1}]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:525)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.createUnhandledAlertException(ErrorHandler.java:187)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:154)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:701)
+	at org.openqa.selenium.firefox.FirefoxDriver.getScreenshotAs(FirefoxDriver.java:341)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:601)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:648)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:103)
+	at com.sun.proxy.$Proxy10.getScreenshotAs(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.getScreenshotAs(EventFiringWebDriver.java:270)
+	at com.elong.air.base.BaseTestClass.takeScreenShort(BaseTestClass.java:96)
+	at com.elong.air.base.BaseScreenShortListener.onTestFailure(BaseScreenShortListener.java:18)
+	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1777)
+	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1761)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:710)
 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:834)
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1142)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
@@ -62,18 +77,18 @@
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.IllegalStateException -->
+          </exception> <!-- org.openqa.selenium.UnhandledAlertException -->
           <reporter-output>
             <line>
-              <![CDATA[Failed Screen Shot Path：D:\eclipseWorkSpace\Test_GUI_AIR\ExceptionScreenshotImg\com.elong.air.tests.TestCreateSingleOrder\com.elong.air.tests.TestCreateSingleOrder-createSingleOrder-2016-06-24-12-57-53.png]]>
+              <![CDATA[Failed Screen Shot Path：D:\eclipseWorkSpace\Test_GUI_AIR\ExceptionScreenshotImg\com.elong.air.tests.TestCreateOrder_RoundTrip\com.elong.air.tests.TestCreateOrder_RoundTrip-createSingleOrder-2016-06-24-18-02-58.png]]>
             </line>
           </reporter-output>
         </test-method> <!-- createSingleOrder -->
-        <test-method status="PASS" signature="aftclass()[pri:0, instance:com.elong.air.tests.TestCreateSingleOrder@5ec02dac]" name="aftclass" is-config="true" duration-ms="1296" started-at="2016-06-24T12:57:54Z" finished-at="2016-06-24T12:57:55Z">
+        <test-method status="PASS" signature="aftclass()[pri:0, instance:com.elong.air.tests.TestCreateOrder_RoundTrip@7bbca7ab]" name="aftclass" is-config="true" duration-ms="1275" started-at="2016-06-24T18:02:59Z" finished-at="2016-06-24T18:03:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- aftclass -->
-      </class> <!-- com.elong.air.tests.TestCreateSingleOrder -->
+      </class> <!-- com.elong.air.tests.TestCreateOrder_RoundTrip -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

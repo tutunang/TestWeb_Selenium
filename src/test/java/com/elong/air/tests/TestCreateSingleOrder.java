@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import com.elong.air.PageObject.AirListsPage;
 import com.elong.air.PageObject.CheckOrderPage;
+import com.elong.air.PageObject.FinishedOrderPage;
 import com.elong.air.PageObject.InputInformationPage;
 import com.elong.air.PageObject.PaymentMethodPage;
 import com.elong.air.PageObject.PaymentPage;
