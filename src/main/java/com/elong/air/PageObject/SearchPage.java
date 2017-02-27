@@ -14,6 +14,7 @@ import com.elong.air.PageObject.HomePage.Zones;
 import com.elong.air.base.BasePage;
 import com.elong.air.bean.SearchInfoBean;
 import com.elong.air.exception.AirException;
+import com.elong.air.tools.Common;
 
 public class SearchPage extends BasePage {
 
@@ -97,19 +98,19 @@ public class SearchPage extends BasePage {
 			//getOptionFromLists(bean.getEndCity());
 		}
 
-		if (StringUtils.isNotEmpty(bean.getStartDate())) {
+		if (StringUtils.isNotEmpty(Common.getAfter_today_Date(3))) {
 			// click(key1);
-			this.setInputText(startDate, bean.getStartDate());
+			this.setInputText(startDate, Common.getAfter_today_Date(3));
 			click(key1);
 		}
 		if (bean.getRoundWay() == true) {
 			this.setCheck(roundRadio);
 
-			if (StringUtils.isNotEmpty(bean.getReturnDate())) {
+			if (StringUtils.isNotEmpty(Common.getAfter_today_Date(5))) {
 				// this.setInputText(returnDate, bean.getReturnDate());
 				returnDate.clear();
 				click(key1);
-				returnDate.sendKeys(bean.getReturnDate());
+				returnDate.sendKeys(Common.getAfter_today_Date(5));
 				// System.out.println(bean.getReturnDate());
 				click(key1);
 			}

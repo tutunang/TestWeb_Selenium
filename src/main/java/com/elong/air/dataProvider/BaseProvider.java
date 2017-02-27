@@ -16,7 +16,6 @@ import com.elong.air.tools.Priority;
 /**
  * 数据驱动类，为测试类提供测试数据，提供的是符合用例优先级的测试数据所在的行数
  * 
- * @author qiaojiafei
  * @version 创建时间：2016年4月25日 下午1:11:02 类说明
  */
 public class BaseProvider {
@@ -57,6 +56,7 @@ public class BaseProvider {
 		}
 
 		return list.iterator();
+		//return listtemp.iterator();
 
 	}
 }

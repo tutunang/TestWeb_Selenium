@@ -88,6 +88,7 @@ public class BasePage {
 		log.debug("------使用BasePageObject(WebDriver driver)构造方法开始------");
 		
 		final String pagetitle = this.getClass().getCanonicalName();
+		System.out.print(pagetitle);
 		final String logo = OptionFile.readProperties(
 				"./src/main/resources/pagetitle.properties", pagetitle);
 		this.driver = driver;

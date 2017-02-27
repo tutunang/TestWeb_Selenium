@@ -19,25 +19,25 @@ public class InputInformationPage  extends BasePage{
 		super(driver);		
 	}
 
-@FindBy(css="li[method='Passenger']> #txtPassengerName" )
+@FindBy(css=".passenger-info-nameValue" )
 public List<WebElement> passengerNameInputTextField;
 
-@FindBy(css="#txtCertificateNo")
+@FindBy(css=".passenger-info-certValue")
 public List<WebElement> passengerIdInputTextField;
 
 @FindBy(css=".j-insure-box>p>input")
 public List<WebElement> insuranceCheckBox;
 
-@FindBy(css="#dlCerType")
+@FindBy(css=".passenger-info-certType")
 public List<WebElement> cardType;
 
-@FindBy(css="#txtMobilePhone")
+@FindBy(css=".linkMethod-phone")
 public WebElement phoneInputTextField;
 
-@FindBy(css="#btnSaveOrder")
+@FindBy(css=".orderSubmit.orderSubmitHover")
 public WebElement summitButton;
 
-@FindBy(css="#txtBirthday")
+@FindBy(css=".passenger-info-birthdayValue")
 public List<WebElement> birthTextField;
 
 @FindBy(css=".btn")

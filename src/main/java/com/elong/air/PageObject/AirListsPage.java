@@ -33,6 +33,9 @@ public class AirListsPage extends BasePage{
 	@FindBy(css = "#flightlist .flightlist .fltable-div  .bizopt")
 	public List<WebElement> bizopt;
 	
+	@FindBy(css = ".fltable-div>.fltable tr>td[class='cols06']>div>input")
+	public List<WebElement> listBooking_Button;
+	
 	@FindBy(css = "#classM")
 	public WebElement classTypeCheckbox;
 	
@@ -55,6 +58,35 @@ public class AirListsPage extends BasePage{
 		throw new AirException("Can't not find the airlist");
 
 	}
+	
+	//随意丁一个舱位
+	public InputInformationPage BookingSeat(int i){
+		listBooking_Button.get(i).click();
+			return new InputInformationPage(driver);
+		}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	//商务优选_往返
 	public AirListsRoundTripPage getFirstBizopt_round() throws Exception {

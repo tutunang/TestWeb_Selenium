@@ -5,7 +5,6 @@ import java.util.Map;
 import com.elong.air.base.BaseBean;
 
 /** 
- * @author QiaoJiafei 
  * @version 创建时间：2016年5月3日 上午10:25:23 
  * 类说明 
  */

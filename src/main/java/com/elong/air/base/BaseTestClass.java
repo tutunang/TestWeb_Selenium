@@ -16,6 +16,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 
+import com.elong.air.tests.TestCookie;
 import com.elong.air.tools.Common;
 import com.elong.air.tools.DriverFactory;
 import com.elong.air.tools.OptionFile;
@@ -23,7 +24,6 @@ import com.elong.air.tools.OptionFile;
 /**
  * 顶层Test类，com.elong.air.tests下面的所有test类都应继承该类，该类调用了WebDriver的初始化及销毁方法
  * 
- * @author qiaojiafei
  * @version 创建时间：2016年4月25日 下午1:03:16 类说明
  */
 public class BaseTestClass {
@@ -34,23 +34,28 @@ public class BaseTestClass {
 
 	}
 
-	public BaseTestClass(WebDriver driver) {
-		this.driver = driver;
-	}
-
-	public void setDriver(WebDriver driver) {
-		this.driver = driver;
-	}
+//	public BaseTestClass(WebDriver driver) {
+//		this.driver = driver;
+//	}
+//
+//	public void setDriver(WebDriver driver) {
+//		this.driver = driver;
+//	}
 
 	public WebDriver getDriver() {
 		return driver;
 	}
 
 	@BeforeClass
-	public void befclass() {
+	public void befclass() throws Exception {
 		log.debug("------执行beforeclass开始------");
 		driver = DriverFactory.setUpDriver();
 		visitorURL();
+	//	driver.get("https://secure.elong.com/passport/login_cn.html");
+		TestCookie tc=new TestCookie();
+		tc.getCookie(driver);
+		visitorURL();
+		driver.get("http://flight.elong.com");
 		log.debug("------执行beforeclass结束------");
 	}
 

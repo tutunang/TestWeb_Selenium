@@ -1,6 +1,9 @@
 package com.elong.air.tools;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.regex.Pattern;
@@ -61,9 +64,42 @@ public class Common {
 		String number = Pattern.compile("[^0-9]").matcher(source).replaceAll("");
 		return number;
 	}
-	public static void main(String args[]) {
-		for(int i=0;i<20;i++) {
-			System.out.println(randomInt(5));
-		}
+
+	/**
+	 * 得到当前日期
+	 * @param source
+	 * @return
+	 */
+	
+	
+	public static String getToday_Date(){
+		Date now = new Date(); 
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");//可以方便地修改日期格式
+
+
+		String today_date = dateFormat.format( now ); 
+		System.out.println(today_date); 
+		return today_date;
 	}
+	/**
+	 * 得到当前日期+i
+	 * @param source
+	 * @return
+	 */
+	public static String getAfter_today_Date(int i){
+		Calendar c=Calendar.getInstance();
+        //当前的day_of_month加一就是明天时间
+        c.add(Calendar.DAY_OF_MONTH,i);
+        String after_today_date=new SimpleDateFormat("yyyy-MM-dd").format(c.getTime());
+        System.out.println(i+"天后的日期"+after_today_date);
+		
+		return after_today_date;
+	}
+	
+	
+	
+	public static void main(String args[]) {
+	Common.getAfter_today_Date(5);
+	}
+
 }

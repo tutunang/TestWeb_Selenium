@@ -11,7 +11,6 @@ import org.openqa.selenium.support.events.WebDriverEventListener;
 /**
  * webdriver事件监听类，用于底层的log输出
  * 
- * @author QiaoJiafei
  * @version 创建时间：2016年4月25日 下午2:18:42 类说明
  */
 public class BaseEventListener implements WebDriverEventListener {
